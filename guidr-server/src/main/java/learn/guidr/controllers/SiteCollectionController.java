@@ -26,6 +26,12 @@ public class SiteCollectionController {
         return service.findbyId(id);
     }
 
+    // TODO: update params with ones used in data/domain layers
+    @GetMapping("/{state}/{city}")
+    public List<SiteCollection> findByCity(@PathVariable String state, @PathVariable String city) {
+        return service.findByCity(city, state);
+    }
+
     @PostMapping
     public ResponseEntity<?> create(@RequestBody SiteCollection siteCollection) {
         SiteCollectionResult result = service.create(siteCollection);

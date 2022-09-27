@@ -21,11 +21,6 @@ public class ReviewController {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
-    public List<Review> findById(@PathVariable int id) {
-        return service.findbyId(id);
-    }
-
     @PostMapping
     public ResponseEntity<?> create(@RequestBody Review review) {
         ReviewResult result = service.create(review);

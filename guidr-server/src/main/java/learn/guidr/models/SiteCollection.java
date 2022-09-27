@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Collection {
+public class SiteCollection {
 
     private int collectionId;
 
@@ -16,11 +16,11 @@ public class Collection {
 
     private List<Review> reviews = new ArrayList<>();
 
-    public Collection(){
+    public SiteCollection(){
 
     }
 
-    public Collection(int collectionId, String name, String description) {
+    public SiteCollection(int collectionId, String name, String description) {
         this.collectionId = collectionId;
         this.name = name;
         this.description = description;
@@ -70,7 +70,7 @@ public class Collection {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Collection that = (Collection) o;
+        SiteCollection that = (SiteCollection) o;
         return collectionId == that.collectionId && name.equals(that.name) && description.equals(that.description) && landmarks.equals(that.landmarks) && Objects.equals(reviews, that.reviews);
     }
 

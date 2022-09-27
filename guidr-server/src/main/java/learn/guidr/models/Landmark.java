@@ -1,6 +1,9 @@
 package learn.guidr.models;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 public class Landmark {
@@ -11,26 +14,21 @@ public class Landmark {
 
     private BigDecimal price;
 
-    private String address;
+    private Address address;
 
-    private String city;
+    private SiteCollection collection;
 
-    private String state;
-
-    private int zipCode;
 
     public Landmark(){
 
     }
 
-    public Landmark(int landmarkId, String name, BigDecimal price, String address, String city, String state, int zipCode) {
+    public Landmark(int landmarkId, String name, BigDecimal price, Address address, SiteCollection collection) {
         this.landmarkId = landmarkId;
         this.name = name;
         this.price = price;
         this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zipCode = zipCode;
+        this.collection = collection;
     }
 
     public int getLandmarkId() {
@@ -57,36 +55,20 @@ public class Landmark {
         this.price = price;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
-    public String getCity() {
-        return city;
+    public SiteCollection getCollection() {
+        return collection;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+    public void setCollection(SiteCollection collection) {
+        this.collection = collection;
     }
 
     @Override
@@ -94,11 +76,11 @@ public class Landmark {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Landmark landmark = (Landmark) o;
-        return landmarkId == landmark.landmarkId && zipCode == landmark.zipCode && name.equals(landmark.name) && price.equals(landmark.price) && address.equals(landmark.address) && city.equals(landmark.city) && state.equals(landmark.state);
+        return landmarkId == landmark.landmarkId && name.equals(landmark.name) && price.equals(landmark.price) && address.equals(landmark.address) && collection.equals(landmark.collection);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(landmarkId, name, price, address, city, state, zipCode);
+        return Objects.hash(landmarkId, name, price, address, collection);
     }
 }

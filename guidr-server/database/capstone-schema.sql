@@ -2,29 +2,17 @@ drop database if exists guidr;
 create database guidr;
 use guidr;
 
-CREATE TABLE State (
-	state_id integer primary key auto_increment,
-	`name` varchar(2) NOT NULL);
-
-CREATE TABLE City (
-	city_id integer primary key auto_increment,
-	`name` varchar(255) NOT NULL,
-	state_id integer NOT NULL,
-    constraint fk_state_id foreign key(state_id)
-	references State(state_id));
-
 CREATE TABLE Address (
 	address_id integer primary key auto_increment,
 	address varchar(1000) NOT NULL,
 	zip_code integer NOT NULL,
-	city_id integer NOT NULL,
-    constraint fk_city_id foreign key(city_id)
-	references City(city_id));
+	city varchar(255) NOT NULL,
+    state varchar(2) NOT NULL);
 
 CREATE TABLE Collection (
 	collection_id integer primary key auto_increment,
 	`name` varchar(255) NOT NULL,
-	description varchar(2355) NOT NULL);
+	`description` varchar(2355) NOT NULL);
 
 CREATE TABLE Landmarks (
 	landmark_id integer primary key auto_increment,
@@ -45,7 +33,7 @@ CREATE TABLE User (
   
 CREATE TABLE Reviews (
 	review_id integer primary key auto_increment,
-	description varchar(2355) NOT NULL,
+	`description` varchar(2355) NOT NULL,
 	rating decimal NOT NULL,
 	collection_id integer NOT NULL,
 	user_id integer NOT NULL,
@@ -67,71 +55,13 @@ CREATE TABLE user_role (
     constraint fk_role_id foreign key(role_id)
 	references `Role`(role_id));
   
-  
-  
-insert into State (`name`)
-	values
-    ('AL'),
-    ('AK'),
-    ('AZ'),
-    ('AR'),
-    ('CA'),
-    ('CO'),
-    ('CT'),
-    ('DE'),
-    ('FL'),
-    ('GA'),
-    ('HI'),
-    ('ID'),
-    ('IL'),
-    ('IN'),
-    ('IA'),
-    ('KS'),
-    ('KY'),
-    ('LA'),
-    ('ME'),
-    ('MD'),
-    ('MA'),
-    ('MI'),
-    ('MN'),
-    ('MS'),
-    ('MO'),
-    ('MT'),
-    ('NE'),
-    ('NV'),
-    ('NH'),
-    ('NJ'),
-    ('NM'),
-    ('NY'),
-    ('NC'),
-    ('ND'),
-    ('OH'),
-    ('OK'),
-    ('OR'),
-    ('PA'),
-    ('RI'),
-    ('SC'),
-    ('SD'),
-    ('TN'),
-    ('TX'),
-    ('UT'),
-    ('VT'),
-    ('VA'),
-    ('WA'),
-    ('WV'),
-    ('WI'),
-    ('WY');
 
-insert into City (`name`, state_id)
+insert into Address (address, zip_code, city, state)
 	values
-    ('New York', 32);
-
-insert into Address (address, zip_code, city_id)
-	values
-    ('Stone St', '10004', 1),
-    ('1 Bowling Green', '10004', 1),
-    ('Broadway & Morris St', '10004', 1),
-    ('World Trade Center', '10004', 1);
+    ('Stone St', '10004', 'NYC', 'NY'),
+    ('1 Bowling Green', '10004', 'NYC', 'NY'),
+    ('Broadway & Morris St', '10004', 'NYC', 'NY'),
+    ('World Trade Center', '10004', 'NYC', 'NY');
 
 insert into Collection (`name`, `description`)
 	values
@@ -163,15 +93,3 @@ insert into user_role (user_id, role_id)
 	values
     (1, 2),
     (2, 1);
-		
-		
-		
-		
-		
-
-    
-
-
-
-
-

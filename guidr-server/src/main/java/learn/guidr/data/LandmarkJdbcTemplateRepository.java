@@ -72,11 +72,11 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
                 "where landmark_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
-                landmark.getLandmarkId(),
                 landmark.getName(),
                 landmark.getPrice(),
                 landmark.getAddress().getAddressId(),
-                landmark.getCollectionId());
+                landmark.getCollectionId(),
+                landmark.getLandmarkId());
 
         return rowsUpdated > 0;
     }

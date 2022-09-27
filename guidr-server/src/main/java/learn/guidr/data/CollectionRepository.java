@@ -11,7 +11,7 @@ public interface CollectionRepository {
 
     SiteCollection findById(int id) throws DataAccessException;
 
-    List<SiteCollection>findByCity(String city) throws DataAccessException;
+    List<SiteCollection>findByCity(String city, String state) throws DataAccessException;
 
     SiteCollection create(SiteCollection collection) throws DataAccessException;
 

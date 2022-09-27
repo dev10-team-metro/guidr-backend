@@ -49,7 +49,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
             statement.setString(1, landmark.getName());
             statement.setBigDecimal(2, landmark.getPrice());
             statement.setInt(3, landmark.getAddress().getAddressId());
-//            statement.setInt(4, landmark.getCollection().getCollectionId());
+            statement.setInt(4, landmark.getCollectionId());
             return statement;
         }, keyHolder);
 
@@ -75,8 +75,8 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
                 landmark.getLandmarkId(),
                 landmark.getName(),
                 landmark.getPrice(),
-                landmark.getAddress().getAddressId());
-//                landmark.getCollection().getCollectionId());
+                landmark.getAddress().getAddressId(),
+                landmark.getCollectionId());
 
         return rowsUpdated > 0;
     }

@@ -18,8 +18,7 @@ public class ReviewMapper implements RowMapper<Review> {
 
         //collection mapper and appuser mapper
 
-//        CollectionMapper collectionMapper = new CollectionMapper();
-//        review.setCollection(collectionMapper.mapRow(rs, rowNum));
+        review.setCollectionId(rs.getInt("collection_id"));
 
         review.setUserId(rs.getInt("user_id"));
 

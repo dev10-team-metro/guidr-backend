@@ -35,9 +35,15 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     public SiteCollection findById(int id) throws DataAccessException {
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection " +
-                "where id = ?";
+                "where collection_id = ?";
 
-        return jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
+        SiteCollection result = jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
+
+        if(result != null){
+            addLandmarks(result);
+            addReviews(result);
+        }
+        return result;
     }
 
     @Override
@@ -95,23 +101,25 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
         return jdbcTemplate.update(sql, id) > 0;
     }
 
-//    private void addLandmarks(SiteCollection collection) {
-//
-//        final String sql = "select landmark_id, name, price, address_id, collection_id, "
-//                + "from Landmarks "
-//                + "where collection_id = ?";
-//
-//        var landmarks = jdbcTemplate.query(sql, new LandmarkMapper(), collection.getCollectionId());
-//        collection.setLandmarks(landmarks);
-//    }
-//
-//    private void addReviews(SiteCollection collection) {
-//
-//        final String sql = "select review_id, description, rating, collection_id, user_id, "
-//                + "from Reviews"
-//                + "where collection_id = ?";
-//
-//        var reviews = jdbcTemplate.query(sql, new ReviewMapper(), collection.getCollectionId());
-//        collection.setReviews(reviews);
-//    }
+
+
+    private void addLandmarks(SiteCollection collection) {
+
+        final String sql = "select landmark_id, name, price, address_id, collection_id, "
+                + "from Landmarks "
+                + "where collection_id = ?";
+
+        var landmarks = jdbcTemplate.query(sql, new LandmarkMapper(), collection.getCollectionId());
+        collection.setLandmarks(landmarks);
+    }
+
+    private void addReviews(SiteCollection collection) {
+
+        final String sql = "select review_id, description, rating, collection_id, user_id, "
+                + "from Reviews"
+                + "where collection_id = ?";
+
+        var reviews = jdbcTemplate.query(sql, new ReviewMapper(), collection.getCollectionId());
+        collection.setReviews(reviews);
+    }
 }

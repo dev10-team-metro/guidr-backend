@@ -16,19 +16,19 @@ public class Landmark {
 
     private Address address;
 
-//    private SiteCollection collection;
+    private int collectionId;
 
 
     public Landmark(){
 
     }
 
-    public Landmark(int landmarkId, String name, BigDecimal price, Address address, SiteCollection collection) {
+    public Landmark(int landmarkId, String name, BigDecimal price, Address address, int collectionId) {
         this.landmarkId = landmarkId;
         this.name = name;
         this.price = price;
         this.address = address;
-//        this.collection = collection;
+        this.collectionId = collectionId;
     }
 
     public int getLandmarkId() {
@@ -63,24 +63,24 @@ public class Landmark {
         this.address = address;
     }
 
-//    public SiteCollection getCollection() {
-//        return collection;
-//    }
-//
-//    public void setCollection(SiteCollection collection) {
-//        this.collection = collection;
-//    }
+    public int getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(int collectionId) {
+        this.collectionId = collectionId;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Landmark landmark = (Landmark) o;
-        return landmarkId == landmark.landmarkId && name.equals(landmark.name) && price.equals(landmark.price) && address.equals(landmark.address);// && collection.equals(landmark.collection);
+        return landmarkId == landmark.landmarkId && collectionId == landmark.collectionId && name.equals(landmark.name) && Objects.equals(price, landmark.price) && address.equals(landmark.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(landmarkId, name, price, address);//, collection);
+        return Objects.hash(landmarkId, name, price, address, collectionId);
     }
 }

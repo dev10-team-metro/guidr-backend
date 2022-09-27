@@ -13,18 +13,18 @@ public class Review {
 
     private int userId;
 
-//    private SiteCollection collection;
+    private int collectionId;
 
     public Review(){
 
     }
 
-    public Review(int reviewId, String description, BigDecimal rating, int userId, SiteCollection collection) {
+    public Review(int reviewId, String description, BigDecimal rating, int userId, int collectionId) {
         this.reviewId = reviewId;
         this.description = description;
         this.rating = rating;
         this.userId = userId;
-//        this.collection = collection;
+        this.collectionId = collectionId;
     }
 
     public int getReviewId() {
@@ -59,24 +59,24 @@ public class Review {
         this.userId = userId;
     }
 
-//    public SiteCollection getCollection() {
-//        return collection;
-//    }
-//
-//    public void setCollection(SiteCollection collection) {
-//        this.collection = collection;
-//    }
+    public int getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(int collectionId) {
+        this.collectionId = collectionId;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Review review = (Review) o;
-        return reviewId == review.reviewId && userId == review.userId && Objects.equals(description, review.description) && rating.equals(review.rating);// && collection.equals(review.collection);
+        return reviewId == review.reviewId && userId == review.userId && collectionId == review.collectionId && Objects.equals(description, review.description) && rating.equals(review.rating);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reviewId, description, rating, userId); //,collection);
+        return Objects.hash(reviewId, description, rating, userId, collectionId);
     }
 }

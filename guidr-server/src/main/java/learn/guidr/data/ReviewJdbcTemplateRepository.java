@@ -39,7 +39,7 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, review.getDescription());
             statement.setBigDecimal(2, review.getRating());
-//            statement.setInt(3, review.getCollection().getCollectionId());
+            statement.setInt(3, review.getCollectionId());
             statement.setInt(4, review.getUserId());
 
             return statement;
@@ -67,8 +67,8 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
                 review.getReviewId(),
                 review.getDescription(),
                 review.getRating(),
-                review.getUserId());
-//                review.getCollection().getCollectionId());
+                review.getUserId(),
+                review.getCollectionId());
 
         return rowsUpdated > 0;
     }

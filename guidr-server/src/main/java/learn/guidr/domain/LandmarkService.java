@@ -55,5 +55,41 @@ public class LandmarkService {
         if(!repository.update(landmark)){
             result.addMessage("Landmark does not exist", ResultType.NOT_FOUND);
         }
+
+        return result;
+    }
+
+    public Result<Landmark> deleteById(int landmarkId) throws DataAccessException {
+        Result<Landmark> result = new Result<>();
+
+        if(!repository.deleteById(landmarkId)){
+            result.addMessage("Landmark does not exist", ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
+
+    private Result<Landmark> validate(Landmark landmark) throws DataAccessException {
+        Result<Landmark> result = new Result<>();
+
+        if(landmark == null){
+            result.addMessage("Landmark cannot be null", ResultType.INVALID);
+            return result;
+        }
+
+        if(Validations.isNullOrBlank(landmark.getName())){
+            result.addMessage("A landmark name is required", ResultType.INVALID);
+        }
+
+        if(isDuplicate(landmark)){
+            result.addMessage("Cannot have a duplicate landmark", ResultType.INVALID);
+        }
+
+        return result;
+    }
+
+    private boolean isDuplicate(Landmark landmark) throws DataAccessException {
+        return findAll().stream()
+                .anyMatch(landmark1 -> landmark1.getName().equals(landmark.getName()));
     }
 }

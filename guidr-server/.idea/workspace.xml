@@ -5,35 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AppUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/CollectionResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/CollectionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ResultType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ReviewResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/AppUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/security/JwtConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/security/JwtRequestFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/security/SecurityConfig.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AddressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/Validations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/CollectionResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ReviewResult.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -65,5 +62,16 @@
       <updated>1664290550599</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

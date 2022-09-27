@@ -1,5 +1,6 @@
 package learn.guidr.domain;
 
+import learn.guidr.data.AppUserRepository;
 import learn.guidr.models.AppUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

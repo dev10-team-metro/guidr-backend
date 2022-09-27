@@ -1,5 +1,6 @@
 package learn.guidr.domain;
 
+import learn.guidr.data.CollectionRepository;
 import org.springframework.stereotype.Service;
 
 @Service

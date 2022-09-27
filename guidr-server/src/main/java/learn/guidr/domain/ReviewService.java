@@ -1,5 +1,6 @@
 package learn.guidr.domain;
 
+import learn.guidr.data.ReviewRepository;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -7,11 +7,13 @@ import learn.guidr.models.SiteCollection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     public final JdbcTemplate jdbcTemplate;
@@ -93,23 +95,23 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
         return jdbcTemplate.update(sql, id) > 0;
     }
 
-    private void addLandmarks(SiteCollection collection) {
-
-        final String sql = "select landmark_id, name, price, address_id, collection_id, "
-                + "from Landmarks "
-                + "where collection_id = ?";
-
-        var landmarks = jdbcTemplate.query(sql, new LandmarkMapper(), collection.getCollectionId());
-        collection.setLandmarks(landmarks);
-    }
-
-    private void addReviews(SiteCollection collection) {
-
-        final String sql = "select review_id, description, rating, collection_id, user_id, "
-                + "from Reviews"
-                + "where collection_id = ?";
-
-        var reviews = jdbcTemplate.query(sql, new ReviewMapper(), collection.getCollectionId());
-        collection.setReviews(reviews);
-    }
+//    private void addLandmarks(SiteCollection collection) {
+//
+//        final String sql = "select landmark_id, name, price, address_id, collection_id, "
+//                + "from Landmarks "
+//                + "where collection_id = ?";
+//
+//        var landmarks = jdbcTemplate.query(sql, new LandmarkMapper(), collection.getCollectionId());
+//        collection.setLandmarks(landmarks);
+//    }
+//
+//    private void addReviews(SiteCollection collection) {
+//
+//        final String sql = "select review_id, description, rating, collection_id, user_id, "
+//                + "from Reviews"
+//                + "where collection_id = ?";
+//
+//        var reviews = jdbcTemplate.query(sql, new ReviewMapper(), collection.getCollectionId());
+//        collection.setReviews(reviews);
+//    }
 }

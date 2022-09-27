@@ -5,11 +5,13 @@ import learn.guidr.models.Landmark;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
     private final JdbcTemplate jdbcTemplate;
 
@@ -47,7 +49,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
             statement.setString(1, landmark.getName());
             statement.setBigDecimal(2, landmark.getPrice());
             statement.setInt(3, landmark.getAddress().getAddressId());
-            statement.setInt(4, landmark.getCollection().getCollectionId());
+//            statement.setInt(4, landmark.getCollection().getCollectionId());
             return statement;
         }, keyHolder);
 
@@ -73,8 +75,8 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
                 landmark.getLandmarkId(),
                 landmark.getName(),
                 landmark.getPrice(),
-                landmark.getAddress().getAddressId(),
-                landmark.getCollection().getCollectionId());
+                landmark.getAddress().getAddressId());
+//                landmark.getCollection().getCollectionId());
 
         return rowsUpdated > 0;
     }

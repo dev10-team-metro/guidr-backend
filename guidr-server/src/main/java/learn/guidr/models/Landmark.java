@@ -16,7 +16,7 @@ public class Landmark {
 
     private Address address;
 
-    private SiteCollection collection;
+//    private SiteCollection collection;
 
 
     public Landmark(){
@@ -28,7 +28,7 @@ public class Landmark {
         this.name = name;
         this.price = price;
         this.address = address;
-        this.collection = collection;
+//        this.collection = collection;
     }
 
     public int getLandmarkId() {
@@ -63,24 +63,24 @@ public class Landmark {
         this.address = address;
     }
 
-    public SiteCollection getCollection() {
-        return collection;
-    }
-
-    public void setCollection(SiteCollection collection) {
-        this.collection = collection;
-    }
+//    public SiteCollection getCollection() {
+//        return collection;
+//    }
+//
+//    public void setCollection(SiteCollection collection) {
+//        this.collection = collection;
+//    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Landmark landmark = (Landmark) o;
-        return landmarkId == landmark.landmarkId && name.equals(landmark.name) && price.equals(landmark.price) && address.equals(landmark.address) && collection.equals(landmark.collection);
+        return landmarkId == landmark.landmarkId && name.equals(landmark.name) && price.equals(landmark.price) && address.equals(landmark.address);// && collection.equals(landmark.collection);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(landmarkId, name, price, address, collection);
+        return Objects.hash(landmarkId, name, price, address);//, collection);
     }
 }

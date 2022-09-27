@@ -5,11 +5,13 @@ import learn.guidr.models.Review;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class ReviewJdbcTemplateRepository implements ReviewRepository{
     private final JdbcTemplate jdbcTemplate;
 
@@ -37,7 +39,7 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, review.getDescription());
             statement.setBigDecimal(2, review.getRating());
-            statement.setInt(3, review.getCollection().getCollectionId());
+//            statement.setInt(3, review.getCollection().getCollectionId());
             statement.setInt(4, review.getUserId());
 
             return statement;
@@ -65,8 +67,8 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
                 review.getReviewId(),
                 review.getDescription(),
                 review.getRating(),
-                review.getUserId(),
-                review.getCollection().getCollectionId());
+                review.getUserId());
+//                review.getCollection().getCollectionId());
 
         return rowsUpdated > 0;
     }

@@ -16,13 +16,13 @@ public class LandmarkMapper implements RowMapper<Landmark> {
         landmark.setName(rs.getString("name"));
         landmark.setPrice(rs.getBigDecimal("price"));
 
-        //Taddress mapper and sitecollection mapper
+        //address mapper and sitecollection mapper
 
         AddressMapper addressMapper = new AddressMapper();
         landmark.setAddress(addressMapper.mapRow(rs, rowNum));
 
-        CollectionMapper collectionMapper = new CollectionMapper();
-        landmark.setCollection(collectionMapper.mapRow(rs, rowNum));
+//        CollectionMapper collectionMapper = new CollectionMapper();
+//        landmark.setCollection(collectionMapper.mapRow(rs, rowNum));
 
         return landmark;
     }

@@ -4,7 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import learn.guidr.data.LandmarkRepository;
+import learn.guidr.models.Address;
 import learn.guidr.models.Landmark;
+import learn.guidr.models.SiteCollection;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -39,10 +42,11 @@ class LandmarkControllerTest {
                 1,
                         "Bronx Zoo",
                         new BigDecimal("41.95"),
-                "2300 Southern Boulevard",
+                        new Address(1, "2300 Southern Boulevard",
                         "Bronx",
                         "NY",
-                        10460);
+                        10460),
+                        new SiteCollection());
 
     @Test
     void shouldFindAllReturning200() throws Exception {
@@ -82,10 +86,11 @@ class LandmarkControllerTest {
                 0,
                 "Bronx Zoo",
                 new BigDecimal("41.95"),
-                "2300 Southern Boulevard",
-                "Bronx",
-                "NY",
-                10460);
+                new Address(1, "2300 Southern Boulevard",
+                        "Bronx",
+                        "NY",
+                        10460),
+                new SiteCollection());
 
         Landmark expected = TEST_LANDMARK;
 
@@ -133,10 +138,11 @@ class LandmarkControllerTest {
                 2,
                 "Bronx Zoo",
                 new BigDecimal("41.95"),
-                "2300 Southern Boulevard",
-                "Bronx",
-                "NY",
-                10460);;
+                new Address(1, "2300 Southern Boulevard",
+                        "Bronx",
+                        "NY",
+                        10460),
+                new SiteCollection());;
 
         List<Landmark> all = new ArrayList<>();
         all.add(TEST_LANDMARK);

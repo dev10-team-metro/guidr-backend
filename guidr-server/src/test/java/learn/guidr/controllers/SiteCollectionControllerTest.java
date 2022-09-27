@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import learn.guidr.data.CollectionRepository;
+import learn.guidr.models.SiteCollection;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,7 +14,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,20 +30,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class SiteCollectionControllerTest {
 
     @MockBean
-    SiteCollectionRepository repository;
+    CollectionRepository repository;
 
     @Autowired
     MockMvc mvc;
 
     final String api = "/api/guidr/collection";
 
-    final SiteCollection
+    final SiteCollection TEST_COLLECTION = new SiteCollection(
+            1,
+            "NYC's Largest Parks",
+            "A Collection of NYC's Largest Parks");
+
+
 
     @Test
     void shouldFindAllReturning200() throws Exception {
-        List<Review> expected = new ArrayList<>();
-        expected.add(new Review());
-        expected.add(new Review());
+        List<SiteCollection> expected = new ArrayList<>();
+        expected.add(new SiteCollection());
+        expected.add(new SiteCollection());
 
         when(repository.findAll()).thenReturn(expected);
 
@@ -54,7 +60,7 @@ class SiteCollectionControllerTest {
 
     @Test
     void shouldFindByIdReturning200() throws Exception {
-        Review expected = TEST_REVIEW;
+        SiteCollection expected = TEST_COLLECTION;
 
         when(repository.findById(1).thenReturn(expected));
 
@@ -72,15 +78,18 @@ class SiteCollectionControllerTest {
 
     @Test
     void shouldAddReturning201() throws Exception {
-        Review review = new Review(0, "Test Review", new BigDecimal("9.99"), 5);
+        SiteCollection siteCollection = new SiteCollection(
+                0,
+                "NYC's Largest Parks",
+                "A Collection of NYC's Largest Parks");;
 
-        Review expected = TEST_REVIEW;
+        SiteCollection expected = TEST_COLLECTION;
 
         when(repository.add(any())).thenReturn(expected);
 
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(review));
+                .content(objectToJson(siteCollection));
 
         mvc.perform(request)
                 .andExpect(status().isCreated())
@@ -90,7 +99,7 @@ class SiteCollectionControllerTest {
 
     @Test
     void shouldNotAddReturning400() throws Exception {
-        Review review = TEST_REVIEW;
+        SiteCollection review = TEST_COLLECTION;
 
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -106,7 +115,7 @@ class SiteCollectionControllerTest {
 
         var request = put(api + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(TEST_REVIEW));
+                .content(objectToJson(TEST_COLLECTION));
 
         mvc.perform(request)
                 .andExpect(status().isNoContent());
@@ -114,16 +123,19 @@ class SiteCollectionControllerTest {
 
     @Test
     void shouldNotUpdateReturning400() throws Exception {
-        Review review = new Review(3, "Test Review", new BigDecimal("9.99"), 5);
+        SiteCollection siteCollection = new SiteCollection(
+                4,
+                "NYC's Largest Parks",
+                "A Collection of NYC's Largest Parks");
 
-        List<Review> all = new ArrayList<>();
-        all.add(TEST_REVIEW);
+        List<SiteCollection> all = new ArrayList<>();
+        all.add(TEST_COLLECTION);
 
         when(repository.findAll()).thenReturn(all);
 
         var request = put(api + "/3")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(review));
+                .content(objectToJson(siteCollection));
 
         mvc.perform(request)
                 .andExpect(status().isBadRequest());
@@ -133,7 +145,7 @@ class SiteCollectionControllerTest {
     void shouldNotUpdateReturning409() throws Exception {
         var request = put(api + "/3")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(TEST_REVIEW));
+                .content(objectToJson(TEST_COLLECTION));
 
         mvc.perform(request)
                 .andExpect(status().isConflict());
@@ -142,7 +154,7 @@ class SiteCollectionControllerTest {
     @Test
     void shouldDeleteReturning204() throws Exception {
         when(repository.deleteById(1)).thenReturn(true);
-        when(repository.findById(1)).thenReturn(TEST_REVIEW);
+        when(repository.findById(1)).thenReturn(TEST_COLLECTION);
 
         mvc.perform(delete(api + "/1"))
                 .andExpect(status().isNoContent());
@@ -157,7 +169,7 @@ class SiteCollectionControllerTest {
     @Test
     void shouldNotDeleteReturning400() throws Exception {
         when(repository.deleteById(1)).thenReturn(false);
-        when(repository.findById(1)).thenReturn(TEST_REVIEW);
+        when(repository.findById(1)).thenReturn(TEST_COLLECTION);
 
         mvc.perform(delete(api + "/1"))
                 .andExpect(status().isBadRequest());

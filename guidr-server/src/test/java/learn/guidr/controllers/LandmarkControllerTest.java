@@ -35,6 +35,15 @@ class LandmarkControllerTest {
 
     final String api = "/api/guidr/landmark";
 
+    final Landmark TEST_LANDMARK =  new Landmark(
+                1,
+                        "Bronx Zoo",
+                        new BigDecimal("41.95"),
+                "2300 Southern Boulevard",
+                        "Bronx",
+                        "NY",
+                        10460);
+
     @Test
     void shouldFindAllReturning200() throws Exception {
         List<Landmark> expected = new ArrayList<>();
@@ -51,14 +60,7 @@ class LandmarkControllerTest {
 
     @Test
     void shouldFindByIdReturning200() throws Exception {
-        Landmark expected = new Landmark(
-                1,
-                "Bronx Zoo",
-                new BigDecimal("41.95"),
-                "2300 Southern Boulevard",
-                "Bronx",
-                "NY",
-                10460);
+        Landmark expected = TEST_LANDMARK;
 
         when(repository.findById(1).thenReturn(expected));
 
@@ -85,14 +87,7 @@ class LandmarkControllerTest {
                 "NY",
                 10460);
 
-        Landmark expected = new Landmark(
-                1,
-                "Bronx Zoo",
-                new BigDecimal("41.95"),
-                "2300 Southern Boulevard",
-                "Bronx",
-                "NY",
-                10460);
+        Landmark expected = TEST_LANDMARK;
 
         when(repository.add(any())).thenReturn(expected);
 
@@ -108,14 +103,7 @@ class LandmarkControllerTest {
 
     @Test
     void shouldNotAddReturning400() throws Exception {
-        Landmark landmark = new Landmark(
-                1,
-                "Bronx Zoo",
-                new BigDecimal("41.95"),
-                "2300 Southern Boulevard",
-                "Bronx",
-                "NY",
-                10460);
+        Landmark landmark = TEST_LANDMARK;
 
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -127,14 +115,7 @@ class LandmarkControllerTest {
 
     @Test
     void shouldUpdateReturning204() throws Exception {
-        Landmark landmark = new Landmark(
-                1,
-                "Bronx Zoo",
-                new BigDecimal("41.95"),
-                "2300 Southern Boulevard",
-                "Bronx",
-                "NY",
-                10460);
+        Landmark landmark = TEST_LANDMARK;
 
         when(repository.update(any())).thenReturn(true);
 
@@ -144,6 +125,64 @@ class LandmarkControllerTest {
 
         mvc.perform(request)
                 .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void shouldNotUpdateReturning400() throws Exception {
+        Landmark landmark = new Landmark(
+                2,
+                "Bronx Zoo",
+                new BigDecimal("41.95"),
+                "2300 Southern Boulevard",
+                "Bronx",
+                "NY",
+                10460);;
+
+        List<Landmark> all = new ArrayList<>();
+        all.add(TEST_LANDMARK);
+
+        when(repository.findAll()).thenReturn(all);
+
+        var request = put(api + "/3")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectToJson(landmark));
+
+        mvc.perform(request)
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldNotUpdateReturning409() throws Exception {
+        var request = put(api + "/3")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectToJson(TEST_LANDMARK));
+
+        mvc.perform(request)
+                .andExpect(status().isConflict());
+    }
+
+    @Test
+    void shouldDeleteReturning204() throws Exception {
+        when(repository.deleteById(1)).thenReturn(true);
+        when(repository.findById(1)).thenReturn(TEST_LANDMARK);
+
+        mvc.perform(delete(api + "/1"))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void shouldNotDeleteReturning404() throws Exception {
+        mvc.perform(delete(api + "/2"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void shouldNotDeleteReturning400() throws Exception {
+        when(repository.deleteById(1)).thenReturn(false);
+        when(repository.findById(1)).thenReturn(TEST_LANDMARK);
+
+        mvc.perform(delete(api + "/1"))
+                .andExpect(status().isBadRequest());
     }
 
     private String objectToJson(Object object) throws JsonProcessingException {

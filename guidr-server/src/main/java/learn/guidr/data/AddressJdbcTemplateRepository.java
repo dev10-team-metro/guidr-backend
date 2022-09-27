@@ -31,7 +31,7 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
     @Override
     public Address create(Address address) throws DataAccessException {
 
-        final String sql = "insert into Reviews (address, zip_code, city, state) " +
+        final String sql = "insert into Address (address, zip_code, city, state) " +
                 "values (?, ?, ?, ?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -64,11 +64,11 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
                 "where address_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
-                address.getAddressId(),
                 address.getAddress(),
                 address.getZipCode(),
                 address.getCity(),
-                address.getState());
+                address.getState(),
+                address.getAddressId());
 
         return rowsUpdated > 0;
     }

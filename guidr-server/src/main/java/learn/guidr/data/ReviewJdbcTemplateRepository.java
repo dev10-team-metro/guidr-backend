@@ -64,11 +64,11 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
                 "where review_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
-                review.getReviewId(),
                 review.getDescription(),
                 review.getRating(),
                 review.getUserId(),
-                review.getCollectionId());
+                review.getCollectionId(),
+                review.getReviewId());
 
         return rowsUpdated > 0;
     }

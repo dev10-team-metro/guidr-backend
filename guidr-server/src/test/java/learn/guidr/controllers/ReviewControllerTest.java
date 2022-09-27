@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import learn.guidr.models.Review;
+import learn.guidr.models.SiteCollection;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -37,7 +38,12 @@ class ReviewControllerTest {
 
     final String api = "/api/guidr/review";
 
-    final Review TEST_REVIEW = new Review(1, "Test Review", new BigDecimal("9.99"), 5);
+    final Review TEST_REVIEW = new Review(
+            1,
+            "Test Review",
+            new BigDecimal("9.99"),
+            5,
+            new SiteCollection());
 
     @Test
     void shouldFindAllReturning200() throws Exception {
@@ -73,7 +79,12 @@ class ReviewControllerTest {
 
     @Test
     void shouldAddReturning201() throws Exception {
-        Review review = new Review(0, "Test Review", new BigDecimal("9.99"), 5);
+        Review review = new Review(
+                0,
+                "Test Review",
+                new BigDecimal("9.99"),
+                5,
+                new SiteCollection());
 
         Review expected = TEST_REVIEW;
 
@@ -115,7 +126,12 @@ class ReviewControllerTest {
 
     @Test
     void shouldNotUpdateReturning400() throws Exception {
-        Review review = new Review(3, "Test Review", new BigDecimal("9.99"), 5);
+        Review review = new Review(
+                3,
+                "Test Review",
+                new BigDecimal("9.99"),
+                5,
+                new SiteCollection());
 
         List<Review> all = new ArrayList<>();
         all.add(TEST_REVIEW);

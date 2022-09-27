@@ -2,6 +2,8 @@ package learn.guidr.domain;
 
 import learn.guidr.data.AddressRepository;
 import learn.guidr.data.DataAccessException;
+import learn.guidr.data.LandmarkJdbcTemplateRepository;
+import learn.guidr.data.LandmarkRepository;
 import learn.guidr.models.Address;
 import learn.guidr.models.Landmark;
 import org.springframework.stereotype.Service;
@@ -57,7 +59,7 @@ public class AddressService {
         return result;
     }
 
-    private Result<Address> validate(Address address){
+    private Result<Address> validate(Address address) throws DataAccessException {
         Result<Address> result = new Result<>();
 
         if(address == null){
@@ -81,10 +83,24 @@ public class AddressService {
             result.addMessage("A zipcode name is required", ResultType.INVALID);
         }
 
-        if(isDuplicate(landmark)){
-            result.addMessage("Cannot have a duplicate landmark", ResultType.INVALID);
+        if(isDuplicate(address)){
+            result.addMessage("Cannot have a duplicate address", ResultType.INVALID);
         }
 
         return result;
     }
-}
+
+    private boolean isDuplicate(Address address) throws DataAccessException {
+        return findAll().stream()
+                .anyMatch(address1 -> address1.getAddress().equals(address.getAddress()));
+    }
+
+    private Result<Address> validateReference(int addressId){
+        Result<Address> result = new Result<>();
+
+        private List<Landmark> referencingData
+
+
+    }
+
+    private List<Landmark> findAllLandmarks()

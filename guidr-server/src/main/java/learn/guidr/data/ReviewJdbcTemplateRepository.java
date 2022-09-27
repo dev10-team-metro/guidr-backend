@@ -5,11 +5,19 @@ import learn.guidr.models.Review;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+<<<<<<< HEAD
+=======
+import org.springframework.stereotype.Repository;
+>>>>>>> origin
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+@Repository
+>>>>>>> origin
 public class ReviewJdbcTemplateRepository implements ReviewRepository{
     private final JdbcTemplate jdbcTemplate;
 
@@ -37,7 +45,11 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, review.getDescription());
             statement.setBigDecimal(2, review.getRating());
+<<<<<<< HEAD
             statement.setInt(3, review.getCollection().getCollectionId());
+=======
+            statement.setInt(3, review.getCollectionId());
+>>>>>>> origin
             statement.setInt(4, review.getUserId());
 
             return statement;
@@ -62,11 +74,19 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
                 "where review_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
+<<<<<<< HEAD
                 review.getReviewId(),
                 review.getDescription(),
                 review.getRating(),
                 review.getUserId(),
                 review.getCollection().getCollectionId());
+=======
+                review.getDescription(),
+                review.getRating(),
+                review.getUserId(),
+                review.getCollectionId(),
+                review.getReviewId());
+>>>>>>> origin
 
         return rowsUpdated > 0;
     }

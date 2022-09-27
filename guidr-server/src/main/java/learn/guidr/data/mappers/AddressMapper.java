@@ -18,8 +18,11 @@ public class AddressMapper implements RowMapper<Address> {
         address.setCity(rs.getString("city"));
         address.setState(rs.getString("state"));
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin
         return address;
     }
 }

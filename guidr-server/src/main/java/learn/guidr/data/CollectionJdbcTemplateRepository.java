@@ -7,19 +7,13 @@ import learn.guidr.models.SiteCollection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-<<<<<<< HEAD
-=======
 import org.springframework.stereotype.Repository;
->>>>>>> origin
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 @Repository
->>>>>>> origin
 public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     public final JdbcTemplate jdbcTemplate;
@@ -41,15 +35,6 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     public SiteCollection findById(int id) throws DataAccessException {
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection " +
-<<<<<<< HEAD
-                "where id = ?";
-
-        return jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
-    }
-
-    @Override
-    public List<SiteCollection> findByCity(String city) throws DataAccessException {
-=======
                 "where collection_id = ?";
 
         SiteCollection result = jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
@@ -63,18 +48,13 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     @Override
     public List<SiteCollection> findByCity(String city, String state) throws DataAccessException {
->>>>>>> origin
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection c " +
                 "inner join Landmarks l on c.collection_id = l.collection_id " +
                 "inner join Address a on l.address_id = a.address_id " +
                 "where a.city = ? and a.state = ?";
 
-<<<<<<< HEAD
-        return jdbcTemplate.query(sql, new CollectionMapper(), city);
-=======
         return jdbcTemplate.query(sql, new CollectionMapper(), city, state);
->>>>>>> origin
     }
 
     @Override
@@ -108,15 +88,9 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
                 "where collection_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
-<<<<<<< HEAD
-                collection.getCollectionId(),
-                collection.getName(),
-                collection.getDescription());
-=======
                 collection.getName(),
                 collection.getDescription(),
                 collection.getCollectionId());
->>>>>>> origin
 
         return rowsUpdated > 0;
     }
@@ -127,11 +101,8 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
         return jdbcTemplate.update(sql, id) > 0;
     }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> origin
     private void addLandmarks(SiteCollection collection) {
 
         final String sql = "select landmark_id, name, price, address_id, collection_id, "

@@ -5,19 +5,13 @@ import learn.guidr.models.Address;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-<<<<<<< HEAD
-=======
 import org.springframework.stereotype.Repository;
->>>>>>> origin
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 @Repository
->>>>>>> origin
 public class AddressJdbcTemplateRepository implements AddressRepository{
     private final JdbcTemplate jdbcTemplate;
 
@@ -37,11 +31,7 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
     @Override
     public Address create(Address address) throws DataAccessException {
 
-<<<<<<< HEAD
-        final String sql = "insert into Reviews (address, zip_code, city, state) " +
-=======
         final String sql = "insert into Address (address, zip_code, city, state) " +
->>>>>>> origin
                 "values (?, ?, ?, ?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -74,19 +64,11 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
                 "where address_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
-<<<<<<< HEAD
-                address.getAddressId(),
-                address.getAddress(),
-                address.getZipCode(),
-                address.getCity(),
-                address.getState());
-=======
                 address.getAddress(),
                 address.getZipCode(),
                 address.getCity(),
                 address.getState(),
                 address.getAddressId());
->>>>>>> origin
 
         return rowsUpdated > 0;
     }

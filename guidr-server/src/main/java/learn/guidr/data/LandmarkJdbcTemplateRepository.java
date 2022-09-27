@@ -5,19 +5,13 @@ import learn.guidr.models.Landmark;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-<<<<<<< HEAD
-=======
 import org.springframework.stereotype.Repository;
->>>>>>> origin
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 @Repository
->>>>>>> origin
 public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
     private final JdbcTemplate jdbcTemplate;
 
@@ -55,11 +49,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
             statement.setString(1, landmark.getName());
             statement.setBigDecimal(2, landmark.getPrice());
             statement.setInt(3, landmark.getAddress().getAddressId());
-<<<<<<< HEAD
-            statement.setInt(4, landmark.getCollection().getCollectionId());
-=======
             statement.setInt(4, landmark.getCollectionId());
->>>>>>> origin
             return statement;
         }, keyHolder);
 
@@ -82,19 +72,11 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
                 "where landmark_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
-<<<<<<< HEAD
-                landmark.getLandmarkId(),
-                landmark.getName(),
-                landmark.getPrice(),
-                landmark.getAddress().getAddressId(),
-                landmark.getCollection().getCollectionId());
-=======
                 landmark.getName(),
                 landmark.getPrice(),
                 landmark.getAddress().getAddressId(),
                 landmark.getCollectionId(),
                 landmark.getLandmarkId());
->>>>>>> origin
 
         return rowsUpdated > 0;
     }

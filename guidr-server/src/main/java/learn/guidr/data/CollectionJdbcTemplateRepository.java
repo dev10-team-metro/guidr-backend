@@ -7,11 +7,13 @@ import learn.guidr.models.SiteCollection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     public final JdbcTemplate jdbcTemplate;
@@ -33,20 +35,26 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     public SiteCollection findById(int id) throws DataAccessException {
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection " +
-                "where id = ?";
+                "where collection_id = ?";
 
-        return jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
+        SiteCollection result = jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
+
+        if(result != null){
+            addLandmarks(result);
+            addReviews(result);
+        }
+        return result;
     }
 
     @Override
-    public List<SiteCollection> findByCity(String city) throws DataAccessException {
+    public List<SiteCollection> findByCity(String city, String state) throws DataAccessException {
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection c " +
                 "inner join Landmarks l on c.collection_id = l.collection_id " +
                 "inner join Address a on l.address_id = a.address_id " +
                 "where a.city = ? and a.state = ?";
 
-        return jdbcTemplate.query(sql, new CollectionMapper(), city);
+        return jdbcTemplate.query(sql, new CollectionMapper(), city, state);
     }
 
     @Override
@@ -80,9 +88,9 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
                 "where collection_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
-                collection.getCollectionId(),
                 collection.getName(),
-                collection.getDescription());
+                collection.getDescription(),
+                collection.getCollectionId());
 
         return rowsUpdated > 0;
     }
@@ -92,6 +100,8 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
         final String sql = "delete from Collection where collection_id = ?;";
         return jdbcTemplate.update(sql, id) > 0;
     }
+
+
 
     private void addLandmarks(SiteCollection collection) {
 

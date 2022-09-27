@@ -7,11 +7,13 @@ import learn.guidr.models.SiteCollection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     public final JdbcTemplate jdbcTemplate;
@@ -33,9 +35,15 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     public SiteCollection findById(int id) throws DataAccessException {
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection " +
-                "where id = ?";
+                "where collection_id = ?";
 
-        return jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
+        SiteCollection result = jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
+
+        if(result != null){
+            addLandmarks(result);
+            addReviews(result);
+        }
+        return result;
     }
 
     @Override
@@ -92,6 +100,8 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
         final String sql = "delete from Collection where collection_id = ?;";
         return jdbcTemplate.update(sql, id) > 0;
     }
+
+
 
     private void addLandmarks(SiteCollection collection) {
 

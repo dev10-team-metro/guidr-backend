@@ -12,7 +12,6 @@ public class Review {
     private BigDecimal rating;
 
     private int userId;
-
     private int collectionId;
 
     public Review(){

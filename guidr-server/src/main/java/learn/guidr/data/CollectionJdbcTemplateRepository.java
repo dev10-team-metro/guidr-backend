@@ -35,6 +35,7 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     public SiteCollection findById(int id) throws DataAccessException {
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection " +
+
                 "where collection_id = ?";
 
         SiteCollection result = jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
@@ -48,11 +49,13 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     @Override
     public List<SiteCollection> findByCity(String city, String state) throws DataAccessException {
+
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection c " +
                 "inner join Landmarks l on c.collection_id = l.collection_id " +
                 "inner join Address a on l.address_id = a.address_id " +
                 "where a.city = ? and a.state = ?";
+
 
         return jdbcTemplate.query(sql, new CollectionMapper(), city, state);
     }
@@ -100,8 +103,6 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
         final String sql = "delete from Collection where collection_id = ?;";
         return jdbcTemplate.update(sql, id) > 0;
     }
-
-
 
     private void addLandmarks(SiteCollection collection) {
 

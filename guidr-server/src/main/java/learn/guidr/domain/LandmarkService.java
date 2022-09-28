@@ -50,10 +50,12 @@ public class LandmarkService {
 
         if(landmark.getLandmarkId() <= 0){
             result.addMessage("Landmark ID must be set in order to update a landmark", ResultType.INVALID);
+            return result;
         }
 
         if(!repository.update(landmark)){
             result.addMessage("Landmark does not exist", ResultType.NOT_FOUND);
+            return result;
         }
 
         return result;

@@ -50,8 +50,7 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     @Override
     public List<SiteCollection> findByCity(String city, String state) throws DataAccessException {
 
-        final String sql = "select collection_id, `name`, `description` " +
-
+        final String sql = "select c.collection_id, c.`name`, c.`description` " +
                 "from Collection c " +
                 "inner join Landmarks l on c.collection_id = l.collection_id " +
                 "inner join Address a on l.address_id = a.address_id " +

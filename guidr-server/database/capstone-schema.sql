@@ -54,6 +54,13 @@ CREATE TABLE user_role (
 	references `User`(user_id),
     constraint fk_role_id foreign key(role_id)
 	references `Role`(role_id));
+    
+CREATE TABLE Facts (
+	facts_id integer primary key auto_increment,
+    `description` varchar(2355) NOT NULL,
+    landmark_id integer NOT NULL,
+    constraint fk_landmark_id foreign key(landmark_id)
+	references Landmark(landmark_id));
   
 
 insert into Address (address, zip_code, city, state)
@@ -93,3 +100,8 @@ insert into user_role (user_id, role_id)
 	values
     (1, 2),
     (2, 1);
+    
+insert into Facts (`description`, landmark_id)
+	values
+    ('Stone Street Historic District description fun fact', 1),
+    ('US Custom House description fun fact', 2);

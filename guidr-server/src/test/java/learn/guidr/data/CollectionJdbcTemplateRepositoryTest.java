@@ -57,7 +57,6 @@ class CollectionJdbcTemplateRepositoryTest {
     void shouldFindByCity() throws DataAccessException {
         List<SiteCollection> result = repository.findByCity("NYC", "NY");
         assertNotNull(result);
-        System.out.println(result);
         assertTrue(result.size() == 1 || result.size() == 2);
     }
 

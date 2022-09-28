@@ -5,30 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/capstone-schema-test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/capstone-schema-test.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/capstone-schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/capstone-schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guidr-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/guidr-server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/LandmarkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/LandmarkController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/ReviewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/SiteCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/SiteCollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/AddressJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/AddressJdbcTemplateRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/CollectionJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/CollectionJdbcTemplateRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/ReviewJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/ReviewJdbcTemplateRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/CollectionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/CollectionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/LandmarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/LandmarkMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AppUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/CollectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/CollectionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ResultType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ResultType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/Validations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/Validations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Landmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Landmark.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/SiteCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/SiteCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/LandmarkControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/LandmarkControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/ReviewControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/ReviewControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/SiteCollectionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/SiteCollectionControllerTest.java" afterDir="false" />
@@ -37,33 +37,22 @@
       <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/GlobalExceptionHandler.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/AddressJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/AddressJdbcTemplateRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/CollectionJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/CollectionJdbcTemplateRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/LandmarkJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/LandmarkJdbcTemplateRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/ReviewJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/ReviewJdbcTemplateRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/CollectionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/CollectionMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/LandmarkMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/LandmarkMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/models/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/models/Address.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/models/AppUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/models/AppUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/domain/AppUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/domain/LandmarkService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/domain/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/domain/ResultType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/domain/Validations.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/models/Landmark.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/models/Landmark.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/models/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/models/Review.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/models/SiteCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/models/SiteCollection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/security/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AddressJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AddressJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AppUserJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AppUserJdbcTemplateRepositoryTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.class" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AppUserServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/CollectionServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/LandmarkServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/ReviewServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AddressService.java" afterDir="false" />
->>>>>>> 731c79dd34bad9d6f2d0fbcb4960c5d1196f9b90
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +62,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -98,14 +89,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/icloggedyourtoilet/Desktop/Capstone/guidr-backend/guidr-server&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/icloggedyourtoilet/Desktop/Capstone/guidr-backend/guidr-server"
   }
-}</component>
-<<<<<<< HEAD
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="learn.guidr.data" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="learn.guidr.data" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.learn.guidr.data in guidr-server">
     <configuration default="true" type="Application" factoryName="Application">
       <envs>
@@ -118,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddressJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FactJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guidr-server" />
       <extension name="coverage">
         <pattern>
@@ -127,7 +130,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="learn.guidr.data" />
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.AddressJdbcTemplateRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.FactJdbcTemplateRepositoryTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <envs>
@@ -139,7 +142,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CollectionJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FactJdbcTemplateRepositoryTest.shouldDeleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guidr-server" />
       <extension name="coverage">
         <pattern>
@@ -148,9 +151,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="learn.guidr.data" />
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.CollectionJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.FactJdbcTemplateRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldDeleteById" />
+      <option name="TEST_OBJECT" value="method" />
       <envs>
         <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
         <env name="DB_USER" value="root" />
@@ -160,7 +163,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LandmarkJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LandmarkJdbcTemplateRepositoryTest.deleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guidr-server" />
       <extension name="coverage">
         <pattern>
@@ -170,8 +173,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="learn.guidr.data" />
       <option name="MAIN_CLASS_NAME" value="learn.guidr.data.LandmarkJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="deleteById" />
+      <option name="TEST_OBJECT" value="method" />
       <envs>
         <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
         <env name="DB_USER" value="root" />
@@ -181,7 +184,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LandmarkJdbcTemplateRepositoryTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guidr-server" />
       <extension name="coverage">
         <pattern>
@@ -190,9 +193,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="learn.guidr.data" />
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.ReviewJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.LandmarkJdbcTemplateRepositoryTest" />
+      <option name="METHOD_NAME" value="update" />
+      <option name="TEST_OBJECT" value="method" />
       <envs>
         <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
         <env name="DB_USER" value="root" />
@@ -231,36 +234,17 @@
         <env name="DB_USER" value="root" />
         <env name="DB_PASS" value="top-secret-password" />
       </envs>
-=======
-  <component name="RunManager">
-    <configuration name="AddressServiceTest.shouldCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="guidr-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="learn.guidr.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="learn.guidr.domain" />
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.domain.AddressServiceTest" />
-      <option name="METHOD_NAME" value="shouldCreate" />
-      <option name="TEST_OBJECT" value="method" />
->>>>>>> 731c79dd34bad9d6f2d0fbcb4960c5d1196f9b90
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-<<<<<<< HEAD
         <item itemvalue="JUnit.learn.guidr.data in guidr-server" />
-        <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
-        <item itemvalue="JUnit.AddressJdbcTemplateRepositoryTest" />
-        <item itemvalue="JUnit.CollectionJdbcTemplateRepositoryTest" />
-        <item itemvalue="JUnit.ReviewJdbcTemplateRepositoryTest" />
-=======
-        <item itemvalue="JUnit.AddressServiceTest.shouldCreate" />
->>>>>>> 731c79dd34bad9d6f2d0fbcb4960c5d1196f9b90
+        <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest.deleteById" />
+        <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest.update" />
+        <item itemvalue="JUnit.FactJdbcTemplateRepositoryTest" />
+        <item itemvalue="JUnit.FactJdbcTemplateRepositoryTest.shouldDeleteById" />
       </list>
     </recent_temporary>
   </component>
@@ -285,5 +269,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/guidr_server$learn_guidr_data_in_guidr_server.ic" NAME="learn.guidr.data in guidr-server Coverage Results" MODIFIED="1664396208001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>learn.guidr.data.*</FILTER>
+    </SUITE>
   </component>
 </project>

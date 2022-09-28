@@ -60,7 +60,7 @@ public class ReviewService {
         return result;
     }
 
-    public Result<Review> delete(int reviewId) throws DataAccessException {
+    public Result<Review> deleteById(int reviewId) throws DataAccessException {
         Result<Review> result = new Result<>();
 
         if(!repository.deleteById(reviewId)){

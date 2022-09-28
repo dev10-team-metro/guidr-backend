@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 38233a095cab9bfad717d56ff3b3824c37527858
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/capstone-schema-test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/capstone-schema-test.sql" afterDir="false" />
@@ -56,6 +63,20 @@
       <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.class" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AppUserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/CollectionServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/LandmarkServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/ReviewServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/AddressService.java" afterDir="false" />
+>>>>>>> 731c79dd34bad9d6f2d0fbcb4960c5d1196f9b90
+>>>>>>> 52118d688cca185939589e0bac5de20ed833af70
+=======
+>>>>>>> 38233a095cab9bfad717d56ff3b3824c37527858
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

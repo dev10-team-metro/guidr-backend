@@ -83,4 +83,15 @@ public class Landmark {
     public int hashCode() {
         return Objects.hash(landmarkId, name, price, address, collectionId);
     }
+
+    @Override
+    public String toString() {
+        return "Landmark{" +
+                "landmarkId=" + landmarkId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", address=" + address +
+                ", collectionId=" + collectionId +
+                '}';
+    }
 }

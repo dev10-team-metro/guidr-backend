@@ -1,6 +1,5 @@
 package learn.guidr.controllers;
 
-import learn.guidr.domain.Result;
 import learn.guidr.domain.ResultType;
 import learn.guidr.domain.ReviewService;
 import learn.guidr.models.Review;
@@ -19,12 +18,17 @@ public class ReviewController {
         this.service = service;
     }
 
+    @GetMapping
+    public List<Review> findAll() {
+        return service.findAll();
+    }
+
     @PostMapping
     public ResponseEntity<?> create(@RequestBody Review review) {
-        Result<Review> result = service.create(review);
+        ReviewResult result = service.create(review);
 
         if (!result.isSuccess()) {
-            return new ResponseEntity<>(result.getMessages(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(result.getErrorMessages(), HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -36,12 +40,12 @@ public class ReviewController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
 
-        Result<Review>  result = service.update(review);
+        ReviewResult result = service.update(review);
         if (!result.isSuccess()) {
-            if (result.getType() == ResultType.NOT_FOUND) {
+            if (result.getResultType() == ResultType.NOT_FOUND) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } else {
-                return new ResponseEntity<>(result.getMessages(), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(result.getErrorMessages(), HttpStatus.BAD_REQUEST);
             }
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -49,9 +53,9 @@ public class ReviewController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id) {
-        Result<Review>  result = service.deleteById(id);
+        ReviewResult result = service.deleteById(id);
 
-        if (result.getType() == ResultType.NOT_FOUND) {
+        if (result.getResultType() == ResultType.NOT_FOUND) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

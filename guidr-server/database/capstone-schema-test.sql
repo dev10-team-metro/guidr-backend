@@ -33,7 +33,7 @@ CREATE TABLE User (
   
 CREATE TABLE Reviews (
 	review_id integer primary key auto_increment,
-	`description` varchar(2355) NOT NULL,
+	`description` varchar(2355),
 	rating decimal NOT NULL,
 	collection_id integer NOT NULL,
 	user_id integer NOT NULL,
@@ -63,14 +63,14 @@ delete from Address;
 alter table Address auto_increment = 0;
 delete from Collection;
 alter table Collection auto_increment = 0;
-delete from Landmarks;
-alter table Landmarks auto_increment = 0;
 delete from `User`;
 alter table `User` auto_increment = 0;
-delete from Reviews;
-alter table Reviews auto_increment = 0;
 delete from `Role`;
 alter table `Role` auto_increment = 0;
+delete from Landmarks;
+alter table Landmarks auto_increment = 0;
+delete from Reviews;
+alter table Reviews auto_increment = 0;
 delete from user_role;
 alter table user_role auto_increment = 0;
 
@@ -83,7 +83,8 @@ insert into Address (address, zip_code, city, state)
 
 insert into Collection (`name`, `description`)
 	values
-    ('New York-Collection #1', 'Go on a tour of downtown New York!');
+    ('New York-Collection #1', 'Go on a tour of downtown New York!'),
+    ('Test Collection', 'Test Description');
 
 insert into Landmarks (`name`, price, address_id, collection_id)
 	values

@@ -60,7 +60,7 @@ public class ReviewJdbcTemplateRepository implements ReviewRepository{
                 "`description` = ?, " +
                 "rating = ?, " +
                 "user_id = ?, " +
-                "collection_id = ?, " +
+                "collection_id = ? " +
                 "where review_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,

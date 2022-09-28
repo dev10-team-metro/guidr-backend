@@ -2,7 +2,6 @@ package learn.guidr.domain;
 
 import learn.guidr.data.DataAccessException;
 import learn.guidr.data.ReviewRepository;
-import learn.guidr.models.Landmark;
 import learn.guidr.models.Review;
 import org.springframework.stereotype.Service;
 
@@ -78,16 +77,26 @@ public class ReviewService {
         }
 
 
-        if(isDuplicate(review)){
-            result.addMessage("Cannot have a duplicate landmark", ResultType.INVALID);
+        if(isDuplicateDesc(review) && isDuplicateUser(review) && isDuplicateCollection(review)){
+            result.addMessage("You cannot have a duplicate comment on the same collection", ResultType.INVALID);
         }
 
         return result;
     }
 
-    private boolean isDuplicate(Review review) throws DataAccessException {
+    private boolean isDuplicateDesc(Review review) throws DataAccessException {
         return findAll().stream()
                 .anyMatch(review1 -> review1.getDescription().equals(review.getDescription()));
+    }
+
+    private boolean isDuplicateUser(Review review) throws DataAccessException {
+        return findAll().stream()
+                .anyMatch(review1 -> review1.getUserId() == (review.getUserId()));
+    }
+
+    private boolean isDuplicateCollection(Review review) throws DataAccessException {
+        return findAll().stream()
+                .anyMatch(review1 -> review1.getCollectionId() == (review.getCollectionId()));
     }
 }
 

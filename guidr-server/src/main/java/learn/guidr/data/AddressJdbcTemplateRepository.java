@@ -69,6 +69,7 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
                 address.getCity(),
                 address.getState(),
                 address.getAddressId());
+
         return rowsUpdated > 0;
     }
 

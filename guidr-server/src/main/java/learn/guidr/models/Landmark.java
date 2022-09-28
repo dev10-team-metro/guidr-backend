@@ -19,7 +19,6 @@ public class Landmark {
     private int collectionId;
 
 
-
     public Landmark(){
 
     }

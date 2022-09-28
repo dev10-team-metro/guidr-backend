@@ -62,7 +62,7 @@ class SiteCollectionControllerTest {
     void shouldFindByIdReturning200() throws Exception {
         SiteCollection expected = TEST_COLLECTION;
 
-        when(repository.findById(1).thenReturn(expected));
+        when(repository.findById(1)).thenReturn(expected);
 
         mvc.perform(get(api + "/1"))
                 .andExpect(status().isOk())
@@ -85,7 +85,7 @@ class SiteCollectionControllerTest {
 
         SiteCollection expected = TEST_COLLECTION;
 
-        when(repository.add(any())).thenReturn(expected);
+        when(repository.create(any())).thenReturn(expected);
 
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -99,11 +99,9 @@ class SiteCollectionControllerTest {
 
     @Test
     void shouldNotAddReturning400() throws Exception {
-        SiteCollection review = TEST_COLLECTION;
-
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(review));
+                .content(objectToJson(TEST_COLLECTION));
 
         mvc.perform(request)
                 .andExpect(status().isBadRequest());

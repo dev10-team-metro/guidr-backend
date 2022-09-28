@@ -3,6 +3,7 @@ package learn.guidr.domain;
 import learn.guidr.data.CollectionRepository;
 import learn.guidr.data.DataAccessException;
 import learn.guidr.models.SiteCollection;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

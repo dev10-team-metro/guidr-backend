@@ -78,4 +78,15 @@ public class SiteCollection {
     public int hashCode() {
         return Objects.hash(collectionId, name, description, landmarks, reviews);
     }
+
+    @Override
+    public String toString() {
+        return "SiteCollection{" +
+                "collectionId=" + collectionId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", landmarks=" + landmarks +
+                ", reviews=" + reviews +
+                '}';
+    }
 }

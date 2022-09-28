@@ -60,7 +60,7 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
                 "address = ?, " +
                 "zip_code = ?, " +
                 "city = ?, " +
-                "state = ?, " +
+                "state = ? " +
                 "where address_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,

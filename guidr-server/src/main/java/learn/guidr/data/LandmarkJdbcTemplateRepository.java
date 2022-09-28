@@ -22,17 +22,19 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
     @Override
     public List<Landmark> findAll() throws DataAccessException {
 
-        final String sql = "select landmark_id, `name`, price, address_id, collection_id " +
-                "from Landmarks;";
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
+                "from Landmarks l " +
+                "inner join Address a on l.address_id = a.address_id ";
 
         return jdbcTemplate.query(sql, new LandmarkMapper());
     }
 
     @Override
     public Landmark findById(int id) throws DataAccessException {
-        final String sql = "select landmark_id, `name`, price, address_id, collection_id " +
-                "from Landmarks " +
-                "where id = ?";
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
+                "from Landmarks l " +
+                "inner join Address a on l.address_id = a.address_id " +
+                "where l.landmark_id = ?";
 
         return jdbcTemplate.query(sql, new LandmarkMapper(), id).stream().findFirst().orElse(null);
     }
@@ -68,7 +70,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
                 "`name` = ?, " +
                 "price = ?, " +
                 "address_id = ?, " +
-                "collection_id = ?, " +
+                "collection_id = ? " +
                 "where landmark_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,

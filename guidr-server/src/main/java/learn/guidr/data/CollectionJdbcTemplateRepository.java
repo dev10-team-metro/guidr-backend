@@ -35,7 +35,8 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     public SiteCollection findById(int id) throws DataAccessException {
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection " +
-                "where collection_id = ?";
+                "where collection_id = ?;";
+
 
         SiteCollection result = jdbcTemplate.query(sql, new CollectionMapper(), id).stream().findFirst().orElse(null);
 
@@ -48,13 +49,25 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     @Override
     public List<SiteCollection> findByCity(String city, String state) throws DataAccessException {
+
         final String sql = "select collection_id, `name`, `description` " +
+
                 "from Collection c " +
                 "inner join Landmarks l on c.collection_id = l.collection_id " +
                 "inner join Address a on l.address_id = a.address_id " +
-                "where a.city = ? and a.state = ?";
+                "where a.city = ? and a.state = ? " +
+                "group by c.collection_id, c.`name`, c.`description` ";
 
-        return jdbcTemplate.query(sql, new CollectionMapper(), city, state);
+
+        List<SiteCollection> result = jdbcTemplate.query(sql, new CollectionMapper(), city, state);
+
+        for (int i = 0; i < result.size(); i++){
+            addLandmarks(result.get(i));
+            addReviews(result.get(i));
+        }
+
+        return result;
+
     }
 
     @Override
@@ -84,7 +97,7 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
     public boolean update(SiteCollection collection) throws DataAccessException {
         final String sql = "update Collection set " +
                 "`name` = ?, " +
-                "`description` = ?, " +
+                "`description` = ? " +
                 "where collection_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
@@ -105,8 +118,9 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     private void addLandmarks(SiteCollection collection) {
 
-        final String sql = "select landmark_id, name, price, address_id, collection_id, "
-                + "from Landmarks "
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state "
+                + "from Landmarks l "
+                + "inner join Address a on l.address_id = a.address_id "
                 + "where collection_id = ?";
 
         var landmarks = jdbcTemplate.query(sql, new LandmarkMapper(), collection.getCollectionId());
@@ -115,8 +129,8 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
     private void addReviews(SiteCollection collection) {
 
-        final String sql = "select review_id, description, rating, collection_id, user_id, "
-                + "from Reviews"
+        final String sql = "select review_id, `description`, rating, collection_id, user_id "
+                + "from Reviews "
                 + "where collection_id = ?";
 
         var reviews = jdbcTemplate.query(sql, new ReviewMapper(), collection.getCollectionId());

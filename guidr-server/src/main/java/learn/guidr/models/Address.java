@@ -78,4 +78,15 @@ public class Address {
     public int hashCode() {
         return Objects.hash(addressId, address, city, state, zipCode);
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "addressId=" + addressId +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipCode=" + zipCode +
+                '}';
+    }
 }

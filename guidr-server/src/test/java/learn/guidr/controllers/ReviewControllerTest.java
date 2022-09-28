@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import learn.guidr.data.ReviewRepository;
 import learn.guidr.models.Review;
 import learn.guidr.models.SiteCollection;
 import org.junit.jupiter.api.Test;
@@ -43,7 +44,7 @@ class ReviewControllerTest {
             "Test Review",
             new BigDecimal("9.99"),
             5,
-            new SiteCollection());
+            1);
 
     @Test
     void shouldFindAllReturning200() throws Exception {
@@ -54,18 +55,6 @@ class ReviewControllerTest {
         when(repository.findAll()).thenReturn(expected);
 
         mvc.perform(get(api))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json(objectToJson(expected)));
-    }
-
-    @Test
-    void shouldFindByIdReturning200() throws Exception {
-        Review expected = TEST_REVIEW;
-
-        when(repository.findById(1).thenReturn(expected));
-
-        mvc.perform(get(api + "/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().json(objectToJson(expected)));
@@ -84,11 +73,11 @@ class ReviewControllerTest {
                 "Test Review",
                 new BigDecimal("9.99"),
                 5,
-                new SiteCollection());
+                1);
 
         Review expected = TEST_REVIEW;
 
-        when(repository.add(any())).thenReturn(expected);
+        when(repository.create(any())).thenReturn(expected);
 
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -102,11 +91,9 @@ class ReviewControllerTest {
 
     @Test
     void shouldNotAddReturning400() throws Exception {
-        Review review = TEST_REVIEW;
-
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(review));
+                .content(objectToJson(TEST_REVIEW));
 
         mvc.perform(request)
                 .andExpect(status().isBadRequest());
@@ -131,7 +118,7 @@ class ReviewControllerTest {
                 "Test Review",
                 new BigDecimal("9.99"),
                 5,
-                new SiteCollection());
+                1);
 
         List<Review> all = new ArrayList<>();
         all.add(TEST_REVIEW);
@@ -159,7 +146,6 @@ class ReviewControllerTest {
     @Test
     void shouldDeleteReturning204() throws Exception {
         when(repository.deleteById(1)).thenReturn(true);
-        when(repository.findById(1)).thenReturn(TEST_REVIEW);
 
         mvc.perform(delete(api + "/1"))
                 .andExpect(status().isNoContent());
@@ -174,7 +160,6 @@ class ReviewControllerTest {
     @Test
     void shouldNotDeleteReturning400() throws Exception {
         when(repository.deleteById(1)).thenReturn(false);
-        when(repository.findById(1)).thenReturn(TEST_REVIEW);
 
         mvc.perform(delete(api + "/1"))
                 .andExpect(status().isBadRequest());

@@ -46,7 +46,7 @@ class LandmarkControllerTest {
                         "Bronx",
                         "NY",
                         10460),
-                        new SiteCollection());
+                        1);
 
     @Test
     void shouldFindAllReturning200() throws Exception {
@@ -66,7 +66,7 @@ class LandmarkControllerTest {
     void shouldFindByIdReturning200() throws Exception {
         Landmark expected = TEST_LANDMARK;
 
-        when(repository.findById(1).thenReturn(expected));
+        when(repository.findById(1)).thenReturn(expected);
 
         mvc.perform(get(api + "/1"))
                 .andExpect(status().isOk())
@@ -90,11 +90,11 @@ class LandmarkControllerTest {
                         "Bronx",
                         "NY",
                         10460),
-                new SiteCollection());
+                1);
 
         Landmark expected = TEST_LANDMARK;
 
-        when(repository.add(any())).thenReturn(expected);
+        when(repository.create(any())).thenReturn(expected);
 
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -108,11 +108,9 @@ class LandmarkControllerTest {
 
     @Test
     void shouldNotAddReturning400() throws Exception {
-        Landmark landmark = TEST_LANDMARK;
-
         var request = post(api)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(landmark));
+                .content(objectToJson(TEST_LANDMARK));
 
         mvc.perform(request)
                 .andExpect(status().isBadRequest());
@@ -120,13 +118,11 @@ class LandmarkControllerTest {
 
     @Test
     void shouldUpdateReturning204() throws Exception {
-        Landmark landmark = TEST_LANDMARK;
-
         when(repository.update(any())).thenReturn(true);
 
         var request = put(api + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectToJson(landmark));
+                .content(objectToJson(TEST_LANDMARK));
 
         mvc.perform(request)
                 .andExpect(status().isNoContent());
@@ -142,7 +138,7 @@ class LandmarkControllerTest {
                         "Bronx",
                         "NY",
                         10460),
-                new SiteCollection());;
+                1);;
 
         List<Landmark> all = new ArrayList<>();
         all.add(TEST_LANDMARK);

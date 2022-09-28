@@ -2,6 +2,7 @@ package learn.guidr.domain;
 
 import learn.guidr.data.AddressRepository;
 import learn.guidr.data.DataAccessException;
+import learn.guidr.data.LandmarkRepository;
 import learn.guidr.models.Address;
 import learn.guidr.models.Landmark;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,14 @@ public class AddressService {
 
     private final AddressRepository repository;
 
-    public AddressService(AddressRepository repository) {
+    private final LandmarkRepository landmarkRepository;
+
+    public AddressService(AddressRepository repository, LandmarkRepository landmarkRepository) {
         this.repository = repository;
+        this.landmarkRepository = landmarkRepository;
     }
+
+
 
     public List<Address> findAll() throws DataAccessException {
         return repository.findAll();
@@ -48,14 +54,32 @@ public class AddressService {
 
         if (address.getAddressId() <= 0) {
             result.addMessage("Address ID must be set in order to update", ResultType.INVALID);
+            return result;
         }
 
         if (!repository.update(address)) {
+            result.addMessage("Address does not exist", ResultType.NOT_FOUND);
+            return result;
+        }
+
+        return result;
+    }
+
+    public Result<Address> deleteById(int addressId) throws DataAccessException {
+        Result<Address> result = new Result<>();
+
+        if(isReferenced(addressId)){
+            result.addMessage("Cannot delete a referenced address", ResultType.INVALID);
+        }
+
+        if(!repository.deleteById(addressId)){
             result.addMessage("Address does not exist", ResultType.NOT_FOUND);
         }
 
         return result;
     }
+
+
 
     private Result<Address> validate(Address address) throws DataAccessException {
         Result<Address> result = new Result<>();
@@ -97,18 +121,12 @@ public class AddressService {
         return findAll().stream()
                 .anyMatch(address1 -> address1.getZipCode() == (address.getZipCode()));
     }
-    
-
-    private Result<Address> validateReference(int addressId) {
-        Result<Address> result = new Result<>();
 
 
+    private boolean isReferenced(int addressId) throws DataAccessException {
 
-
-
-        return result;
-
-        //todo delete validation
+        return landmarkRepository.findAll().stream()
+                .anyMatch(address -> address.getAddress().getAddressId() == addressId);
 
 
     }

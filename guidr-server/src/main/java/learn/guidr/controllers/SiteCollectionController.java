@@ -27,7 +27,7 @@ public class SiteCollectionController {
 
     @GetMapping("/{id}")
     public List<SiteCollection> findById(@PathVariable int id) {
-        return service.findbyId(id);
+        return service.findById(id);
     }
     @GetMapping("/{state}/{city}")
     public List<SiteCollection> findByCity(@PathVariable String state, @PathVariable String city) {

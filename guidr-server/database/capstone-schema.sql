@@ -33,7 +33,7 @@ CREATE TABLE User (
   
 CREATE TABLE Reviews (
 	review_id integer primary key auto_increment,
-	`description` varchar(2355) NOT NULL,
+	`description` varchar(2355),
 	rating decimal NOT NULL,
 	collection_id integer NOT NULL,
 	user_id integer NOT NULL,

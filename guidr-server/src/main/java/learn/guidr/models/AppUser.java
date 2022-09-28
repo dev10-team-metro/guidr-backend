@@ -13,6 +13,13 @@ import java.util.stream.Collectors;
 public class AppUser extends User {
     private static final String AUTHORITY_PREFIX = "ROLE_";
     private int appUserId;
+
+    public AppUser(String username, String password, Collection<? extends GrantedAuthority> authorities, int appUserId, List<String> roles) {
+        super(username, password, authorities);
+        this.appUserId = appUserId;
+        this.roles = roles;
+    }
+
     public AppUser(int appUserId, String username, String password,
                    boolean disabled, List<String> roles) {
         super(username, password, !disabled,
@@ -43,5 +50,13 @@ public class AppUser extends User {
         return authorities.stream()
                 .map(a -> a.getAuthority().substring(AUTHORITY_PREFIX.length()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "appUserId=" + appUserId +
+                ", roles=" + roles +
+                '}';
     }
 }

@@ -12,7 +12,7 @@ public class CollectionMapper implements RowMapper<SiteCollection> {
     public SiteCollection mapRow(ResultSet rs, int rowNum) throws SQLException {
         SiteCollection collection = new SiteCollection();
 
-        collection.setCollectionId(rs.getInt("collectionId"));
+        collection.setCollectionId(rs.getInt("collection_id"));
         collection.setName(rs.getString("name"));
         collection.setDescription(rs.getString("description"));
 

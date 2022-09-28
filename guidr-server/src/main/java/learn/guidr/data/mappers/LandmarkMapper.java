@@ -21,6 +21,9 @@ public class LandmarkMapper implements RowMapper<Landmark> {
         AddressMapper addressMapper = new AddressMapper();
         landmark.setAddress(addressMapper.mapRow(rs, rowNum));
 
+
+        landmark.setCollectionId(rs.getInt("collection_id"));
+
         return landmark;
     }
 }

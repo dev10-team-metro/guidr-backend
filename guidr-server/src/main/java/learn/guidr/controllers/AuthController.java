@@ -26,8 +26,8 @@ public class AuthController {
         this.jwtConverter = jwtConverter;
     }
 
-    @PostMapping("/api/authenicate")
-    public ResponseEntity<?> authenicate(@RequestBody Map<String, String> credentials) {
+    @PostMapping("/api/guidr/authenticate")
+    public ResponseEntity<?> authenticate(@RequestBody Map<String, String> credentials) {
         UsernamePasswordAuthenticationToken authToken =
                 new UsernamePasswordAuthenticationToken(credentials.get("username"), credentials.get("password"));
 

@@ -100,4 +100,5 @@ public class ReviewService {
         return findAll().stream()
                 .anyMatch(review1 -> review1.getCollectionId() == (review.getCollectionId()));
     }
+
 }

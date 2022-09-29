@@ -1,6 +1,7 @@
 package learn.guidr.domain;
 
 import learn.guidr.data.DataAccessException;
+import learn.guidr.data.FactRepository;
 import learn.guidr.data.LandmarkRepository;
 import learn.guidr.models.Landmark;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,11 @@ import java.util.List;
 public class LandmarkService {
     private final LandmarkRepository repository;
 
-    public LandmarkService(LandmarkRepository repository){
+    private final FactRepository factRepository;
+
+    public LandmarkService(LandmarkRepository repository, FactRepository factRepository){
         this.repository = repository;
+        this.factRepository = factRepository;
     }
 
     public List<Landmark> findAll() throws DataAccessException {
@@ -64,6 +68,10 @@ public class LandmarkService {
     public Result<Landmark> deleteById(int landmarkId) throws DataAccessException {
         Result<Landmark> result = new Result<>();
 
+        if(isReferenced(landmarkId)){
+            result.addMessage("Cannot delete a referenced landmark", ResultType.INVALID);
+        }
+
         if(!repository.deleteById(landmarkId)){
             result.addMessage("Landmark does not exist", ResultType.NOT_FOUND);
         }
@@ -93,5 +101,13 @@ public class LandmarkService {
     private boolean isDuplicate(Landmark landmark) throws DataAccessException {
         return findAll().stream()
                 .anyMatch(landmark1 -> landmark1.getName().equals(landmark.getName()));
+    }
+
+    private boolean isReferenced(int landmarkId) throws DataAccessException {
+
+        return factRepository.findAll().stream()
+                .anyMatch(landmark -> landmark.getLandmarkId() == landmarkId);
+
+
     }
 }

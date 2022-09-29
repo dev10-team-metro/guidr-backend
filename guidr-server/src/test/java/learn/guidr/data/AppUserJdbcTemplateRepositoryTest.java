@@ -37,13 +37,4 @@ class AppUserJdbcTemplateRepositoryTest {
         AppUser result = repository.findByUsername("john@smith.com");
         assertNotNull(result);
     }
-
-//    @Test
-//    void create() {
-//
-//    }
-
-//    @Test
-//    void update() {
-//    }
 }

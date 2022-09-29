@@ -55,24 +55,34 @@ CREATE TABLE user_role (
     constraint fk_role_id foreign key(role_id)
 	references `Role`(role_id));
   
+  CREATE TABLE Facts (
+	facts_id integer primary key auto_increment,
+    `description` varchar(2355) NOT NULL,
+    landmark_id integer NOT NULL,
+    constraint fk_landmark_id foreign key(landmark_id)
+	references Landmarks(landmark_id));
+    
 delimiter //
 create procedure set_known_good_state()
 begin
 
-delete from Address;
-alter table Address auto_increment = 0;
-delete from Collection;
-alter table Collection auto_increment = 0;
-delete from `User`;
-alter table `User` auto_increment = 0;
-delete from `Role`;
-alter table `Role` auto_increment = 0;
-delete from Landmarks;
-alter table Landmarks auto_increment = 0;
 delete from Reviews;
-alter table Reviews auto_increment = 0;
+alter table Reviews auto_increment = 1;
+delete from Facts;
+alter table Facts auto_increment = 1;
+delete from Landmarks;
+alter table Landmarks auto_increment = 1;
+delete from Collection;
+alter table Collection auto_increment = 1;
+delete from Address;
+alter table Address auto_increment = 1;
 delete from user_role;
-alter table user_role auto_increment = 0;
+alter table user_role auto_increment = 1;
+delete from `User`;
+alter table `User` auto_increment = 1;
+delete from `Role`;
+alter table `Role` auto_increment = 1;
+
 
 insert into Address (address, zip_code, city, state)
 	values
@@ -112,6 +122,11 @@ insert into user_role (user_id, role_id)
 	values
     (1, 2),
     (2, 1);
+    
+insert into Facts (`description`, landmark_id)
+	values
+    ('Stone Street Historic District description fun fact', 1),
+    ('US Custom House description fun fact', 2);
     
     end //
     delimiter ;

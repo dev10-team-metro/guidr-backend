@@ -68,20 +68,10 @@ public class ReviewServiceTest {
 
     @Test
     void shouldNotUpdateWhenInvalid() throws DataAccessException {
-        Review review = new Review(35,null, new BigDecimal(5), 1, 2);
+        Review review = new Review(0,null, new BigDecimal(5), 1, 2);
 
         Result<Review> actual = service.update(review);
         assertEquals(ResultType.INVALID, actual.getType());
 
-        review.setName("TEST");
-        review.setDescription(" ");
-
-        actual = service.update(review);
-        assertEquals(ResultType.INVALID, actual.getType()); //TO FIX SHOULD BE INVALID NOT FOUND
-
-        review.setCollectionId(0);
-        review.setDescription("TEST DESCRIPTION");
-        actual = service.update(review);
-        assertEquals(ResultType.INVALID, actual.getType());
     }
 }

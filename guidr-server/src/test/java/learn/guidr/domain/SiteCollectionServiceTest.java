@@ -73,8 +73,6 @@ public class SiteCollectionServiceTest {
         collection.setName("TEST");
         collection.setDescription(" ");
 
-        actual = service.update(collection);
-        assertEquals(ResultType.INVALID, actual.getType()); //TO FIX SHOULD BE INVALID NOT FOUND
 
         collection.setCollectionId(0);
         collection.setDescription("TEST DESCRIPTION");

@@ -1,7 +1,9 @@
 package learn.guidr.data;
 
+import learn.guidr.data.mappers.FactMapper;
 import learn.guidr.data.mappers.LandmarkMapper;
 import learn.guidr.models.Landmark;
+import learn.guidr.models.SiteCollection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -36,7 +38,12 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
                 "inner join Address a on l.address_id = a.address_id " +
                 "where l.landmark_id = ?";
 
-        return jdbcTemplate.query(sql, new LandmarkMapper(), id).stream().findFirst().orElse(null);
+       Landmark result = jdbcTemplate.query(sql, new LandmarkMapper(), id).stream().findFirst().orElse(null);
+
+        if(result != null){
+            addFacts(result);
+        }
+        return result;
     }
 
     @Override
@@ -87,5 +94,16 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
     public boolean deleteById(int id) throws DataAccessException {
         final String sql = "delete from Landmarks where landmark_id = ?;";
         return jdbcTemplate.update(sql, id) > 0;
+    }
+
+    private void addFacts(Landmark landmark) {
+
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, f.facts_id, f. `description` "
+                + "from Landmarks l "
+                + "inner join Facts f on l.landmark_id = f.landmark_id "
+                + "where l.landmark_id = ?";
+
+        var facts = jdbcTemplate.query(sql, new FactMapper(), landmark.getLandmarkId());
+        landmark.setFacts(facts);
     }
 }

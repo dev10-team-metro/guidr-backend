@@ -1,6 +1,7 @@
 package learn.guidr.data;
 
 import learn.guidr.models.Address;
+import learn.guidr.models.Fact;
 import learn.guidr.models.Landmark;
 import learn.guidr.models.SiteCollection;
 import org.junit.jupiter.api.AfterAll;
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,6 +87,9 @@ class LandmarkJdbcTemplateRepositoryTest {
         Address address = new Address(2,"1 Bowling Green", "NYC", "NY", 10004);
         landmark.setAddress(address);
         landmark.setCollectionId(1);
+        List<Fact> fact = new ArrayList<>();
+        fact.add(new Fact(2, "US Custom House description fun fact", 2));
+        landmark.setFacts(fact);
 
         assertTrue(repository.update(landmark));
         assertEquals(landmark, repository.findById(2));
@@ -92,6 +97,6 @@ class LandmarkJdbcTemplateRepositoryTest {
 
     @Test
     void deleteById() throws DataAccessException {
-        assertTrue(repository.deleteById(2));
+        assertTrue(repository.deleteById(3));
     }
 }

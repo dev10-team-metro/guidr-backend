@@ -2,6 +2,7 @@ package learn.guidr.models;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +19,7 @@ public class Landmark {
 
     private int collectionId;
 
+    List<Fact> facts = new ArrayList<>();
 
     public Landmark(){
 
@@ -71,17 +73,25 @@ public class Landmark {
         this.collectionId = collectionId;
     }
 
+    public List<Fact> getFacts() {
+        return facts;
+    }
+
+    public void setFacts(List<Fact> facts) {
+        this.facts = facts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Landmark landmark = (Landmark) o;
-        return landmarkId == landmark.landmarkId && collectionId == landmark.collectionId && name.equals(landmark.name) && Objects.equals(price, landmark.price) && address.equals(landmark.address);
+        return landmarkId == landmark.landmarkId && collectionId == landmark.collectionId && name.equals(landmark.name) && price.equals(landmark.price) && address.equals(landmark.address) && Objects.equals(facts, landmark.facts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(landmarkId, name, price, address, collectionId);
+        return Objects.hash(landmarkId, name, price, address, collectionId, facts);
     }
 
     @Override
@@ -92,6 +102,7 @@ public class Landmark {
                 ", price=" + price +
                 ", address=" + address +
                 ", collectionId=" + collectionId +
+                ", facts=" + facts +
                 '}';
     }
 }

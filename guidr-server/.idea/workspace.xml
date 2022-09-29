@@ -18,7 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -47,9 +49,23 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/icloggedyourtoilet/Desktop/Capstone/guidr-backend/guidr-server&quot;
   }
+
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="learn.guidr.data" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="learn.guidr.data" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.LandmarkServiceTest.shouldNotUpdateWhenInvalid">
     <configuration default="true" type="Application" factoryName="Application">
       <envs>
@@ -58,6 +74,39 @@
         <env name="DB_PASS" value="top-secret-password" />
       </envs>
       <module name="guidr-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectionJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FactJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="guidr-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.guidr.data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.guidr.data" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.FactJdbcTemplateRepositoryTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="top-secret-password" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LandmarkJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,11 +230,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LandmarkServiceTest.shouldNotUpdateWhenInvalid" />
-        <item itemvalue="JUnit.LandmarkServiceTest" />
-        <item itemvalue="JUnit.SiteCollectionServiceTest.shouldNotUpdateWhenInvalid" />
-        <item itemvalue="JUnit.learn.guidr.domain in guidr-server" />
-        <item itemvalue="JUnit.ReviewServiceTest" />
+        <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
+        <item itemvalue="JUnit.FactJdbcTemplateRepositoryTest" />
+        <item itemvalue="JUnit.CollectionJdbcTemplateRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,5 +257,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/guidr_server$learn_guidr_data_in_guidr_server.ic" NAME="learn.guidr.data in guidr-server Coverage Results" MODIFIED="1664396208001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>learn.guidr.data.*</FILTER>
+    </SUITE>
   </component>
 </project>

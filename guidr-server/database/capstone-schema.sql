@@ -60,7 +60,7 @@ CREATE TABLE Facts (
     `description` varchar(2355) NOT NULL,
     landmark_id integer NOT NULL,
     constraint fk_landmark_id foreign key(landmark_id)
-	references Landmark(landmark_id));
+	references Landmarks(landmark_id));
   
 
 insert into Address (address, zip_code, city, state)

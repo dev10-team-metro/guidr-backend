@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/SiteCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/SiteCollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/LandmarkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/LandmarkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/SiteCollectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/SiteCollectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/LandmarkServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/ReviewServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/capstone-schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/capstone-schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +64,7 @@
       <recent name="learn.guidr.data" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.learn.guidr.controllers in guidr-server">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr" />
@@ -96,12 +90,6 @@
         <env name="DB_PASS" value="top-secret-password" />
       </envs>
       <module name="guidr-server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CollectionJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,6 +134,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="learn.guidr.controllers in guidr-server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="guidr-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.guidr.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.guidr.controllers" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="top-secret-password" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="learn.guidr.data in guidr-server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guidr-server" />
       <extension name="coverage">
@@ -168,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.learn.guidr.controllers in guidr-server" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.learn.guidr.data in guidr-server" />
         <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
         <item itemvalue="JUnit.FactJdbcTemplateRepositoryTest" />
-        <item itemvalue="JUnit.CollectionJdbcTemplateRepositoryTest" />
       </list>
     </recent_temporary>
   </component>

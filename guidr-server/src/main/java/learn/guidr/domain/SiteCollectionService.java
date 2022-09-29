@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CollectionService {
+public class SiteCollectionService {
     private final CollectionRepository repository;
 
-    public CollectionService(CollectionRepository repository){
+    public SiteCollectionService(CollectionRepository repository){
         this.repository = repository;
     }
 

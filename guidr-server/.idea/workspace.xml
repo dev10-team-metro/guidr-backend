@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/LandmarkServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/LandmarkServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/ReviewServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/ReviewServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/SiteCollectionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/SiteCollectionServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,15 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/icloggedyourtoilet/Desktop/Capstone/guidr-backend/guidr-server"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/icloggedyourtoilet/Desktop/Capstone/guidr-backend/guidr-server&quot;
   }
-}]]></component>
+
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -62,25 +66,7 @@
       <recent name="learn.guidr.data" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr" />
-        <env name="DB_USER" value="root" />
-        <env name="DB_PASS" value="top-secret-password" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.App" />
-      <module name="guidr-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="learn.guidr.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.LandmarkServiceTest.shouldNotUpdateWhenInvalid">
     <configuration default="true" type="Application" factoryName="Application">
       <envs>
         <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr" />
@@ -93,22 +79,7 @@
       </method>
     </configuration>
     <configuration name="CollectionJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="guidr-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="learn.guidr.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="learn.guidr.data" />
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.CollectionJdbcTemplateRepositoryTest" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <envs>
-        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
-        <env name="DB_USER" value="root" />
-        <env name="DB_PASS" value="top-secret-password" />
-      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,15 +106,21 @@
       </method>
     </configuration>
     <configuration name="LandmarkJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LandmarkServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guidr-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="learn.guidr.data.*" />
+          <option name="PATTERN" value="learn.guidr.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="learn.guidr.data" />
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.LandmarkJdbcTemplateRepositoryTest" />
+      <option name="PACKAGE_NAME" value="learn.guidr.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.domain.LandmarkServiceTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <envs>
@@ -155,18 +132,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewJdbcTemplateRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LandmarkServiceTest.shouldNotUpdateWhenInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="guidr-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="learn.guidr.data.*" />
+          <option name="PATTERN" value="learn.guidr.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="learn.guidr.data" />
-      <option name="MAIN_CLASS_NAME" value="learn.guidr.data.ReviewJdbcTemplateRepositoryTest" />
+      <option name="PACKAGE_NAME" value="learn.guidr.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.domain.LandmarkServiceTest" />
+      <option name="METHOD_NAME" value="shouldNotUpdateWhenInvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="top-secret-password" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="guidr-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.guidr.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.guidr.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.domain.ReviewServiceTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="top-secret-password" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SiteCollectionServiceTest.shouldNotUpdateWhenInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="guidr-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.guidr.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.guidr.domain" />
+      <option name="MAIN_CLASS_NAME" value="learn.guidr.domain.SiteCollectionServiceTest" />
+      <option name="METHOD_NAME" value="shouldNotUpdateWhenInvalid" />
+      <option name="TEST_OBJECT" value="method" />
       <envs>
         <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
         <env name="DB_USER" value="root" />
@@ -189,10 +208,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="learn.guidr.domain in guidr-server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="guidr-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learn.guidr.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="learn.guidr.domain" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr_test" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="top-secret-password" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.ReviewJdbcTemplateRepositoryTest" />
         <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
         <item itemvalue="JUnit.FactJdbcTemplateRepositoryTest" />
         <item itemvalue="JUnit.CollectionJdbcTemplateRepositoryTest" />

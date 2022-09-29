@@ -1,7 +1,7 @@
 package learn.guidr.controllers;
 
 import learn.guidr.data.DataAccessException;
-import learn.guidr.domain.CollectionService;
+import learn.guidr.domain.SiteCollectionService;
 import learn.guidr.domain.Result;
 import learn.guidr.domain.ResultType;
 import learn.guidr.models.SiteCollection;
@@ -15,9 +15,9 @@ import java.util.List;
 @RequestMapping("/api/guidr/collection")
 public class SiteCollectionController {
 
-    private final CollectionService service;
+    private final SiteCollectionService service;
 
-    public SiteCollectionController(CollectionService service) {
+    public SiteCollectionController(SiteCollectionService service) {
         this.service = service;
     }
 

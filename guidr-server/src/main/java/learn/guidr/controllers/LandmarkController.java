@@ -26,8 +26,14 @@ public class LandmarkController {
     }
 
     @GetMapping("/{id}")
-    public Landmark findById(@PathVariable int id) throws DataAccessException {
-        return service.findById(id);
+    public ResponseEntity<?> findById(@PathVariable int id) throws DataAccessException {
+        Landmark result = service.findById(id);
+
+        if (result != null) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping

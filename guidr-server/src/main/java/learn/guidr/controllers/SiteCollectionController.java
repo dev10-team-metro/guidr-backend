@@ -1,10 +1,9 @@
 package learn.guidr.controllers;
 
-import learn.guidr.domain.ResultType;
 import learn.guidr.data.DataAccessException;
+import learn.guidr.domain.CollectionService;
 import learn.guidr.domain.Result;
 import learn.guidr.domain.ResultType;
-import learn.guidr.domain.SiteCollectionService;
 import learn.guidr.models.SiteCollection;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +15,9 @@ import java.util.List;
 @RequestMapping("/api/guidr/collection")
 public class SiteCollectionController {
 
-    private final SiteCollectionService service;
+    private final CollectionService service;
 
-    public SiteCollectionController(SiteCollectionService service) {
+    public SiteCollectionController(CollectionService service) {
         this.service = service;
     }
 
@@ -28,11 +27,16 @@ public class SiteCollectionController {
     }
 
     @GetMapping("/{id}")
-    public SiteCollection findById(@PathVariable int id) throws DataAccessException {
-        return service.findById(id);
+    public ResponseEntity<?> findById(@PathVariable int id) throws DataAccessException {
+        SiteCollection result = service.findById(id);
+
+        if (result != null) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // TODO: update params with ones used in data/domain layers
     @GetMapping("/{state}/{city}")
     public List<SiteCollection> findByCity(@PathVariable String state, @PathVariable String city) throws DataAccessException {
         return service.findByCity(city, state);

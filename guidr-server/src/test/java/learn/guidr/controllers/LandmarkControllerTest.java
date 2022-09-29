@@ -1,4 +1,3 @@
-
 package learn.guidr.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -195,4 +194,3 @@ class LandmarkControllerTest {
         return objectMapper.writeValueAsString(object);
     }
 }
-

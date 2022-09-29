@@ -1,5 +1,9 @@
 package learn.guidr.controllers;
 
+import learn.guidr.data.DataAccessException;
+import learn.guidr.domain.CollectionService;
+import learn.guidr.domain.Result;
+import learn.guidr.domain.ResultType;
 import learn.guidr.models.SiteCollection;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,61 +15,66 @@ import java.util.List;
 @RequestMapping("/api/guidr/collection")
 public class SiteCollectionController {
 
-    private final SitecollectionService service;
+    private final CollectionService service;
 
-    public SiteCollectionController(SitecollectionService service) {
+    public SiteCollectionController(CollectionService service) {
         this.service = service;
     }
 
     @GetMapping
-    public List<SiteCollection> findAll() {
+    public List<SiteCollection> findAll() throws DataAccessException {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public List<SiteCollection> findById(@PathVariable int id) {
-        return service.findbyId(id);
+    public ResponseEntity<?> findById(@PathVariable int id) throws DataAccessException {
+        SiteCollection result = service.findById(id);
+
+        if (result != null) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // TODO: update params with ones used in data/domain layers
     @GetMapping("/{state}/{city}")
-    public List<SiteCollection> findByCity(@PathVariable String state, @PathVariable String city) {
+    public List<SiteCollection> findByCity(@PathVariable String state, @PathVariable String city) throws DataAccessException {
         return service.findByCity(city, state);
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody SiteCollection siteCollection) {
-        SiteCollectionResult result = service.create(siteCollection);
+    public ResponseEntity<?> create(@RequestBody SiteCollection siteCollection) throws DataAccessException {
+        Result<SiteCollection> result = service.create(siteCollection);
 
         if (!result.isSuccess()) {
-            return new ResponseEntity<>(result.getErrorMessages(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(result.getMessages(), HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable int id, @RequestBody SiteCollection siteCollection) {
-        if (id != siteCollection.getCollectionId) {
+    public ResponseEntity<?> update(@PathVariable int id, @RequestBody SiteCollection siteCollection) throws DataAccessException {
+        if (id != siteCollection.getCollectionId()) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
 
-        SiteCollectionResult result = service.update(siteCollection);
+        Result<SiteCollection> result = service.update(siteCollection);
         if (!result.isSuccess()) {
-            if (result.getResultType() == ResultType.NOT_FOUND) {
+            if (result.getType() == ResultType.NOT_FOUND) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } else {
-                return new ResponseEntity<>(result.getErrorMessages(), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(result.getMessages(), HttpStatus.BAD_REQUEST);
             }
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable int id) {
-        SiteCollectionResult result = service.deleteById(id);
+    public ResponseEntity<Void> delete(@PathVariable int id) throws DataAccessException {
+        Result<SiteCollection> result = service.deleteById(id);
 
-        if (result.getResultType() == ResultType.NOT_FOUND) {
+        if (result.getType() == ResultType.NOT_FOUND) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

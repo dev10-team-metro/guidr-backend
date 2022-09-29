@@ -12,9 +12,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@WithMockUser(username = "admin", password = "admin", roles = {"ADMIN", "USER"})
 class SiteCollectionControllerTest {
 
     @MockBean
@@ -122,7 +125,7 @@ class SiteCollectionControllerTest {
     @Test
     void shouldNotUpdateReturning400() throws Exception {
         SiteCollection siteCollection = new SiteCollection(
-                4,
+                3,
                 "NYC's Largest Parks",
                 "A Collection of NYC's Largest Parks");
 
@@ -141,7 +144,7 @@ class SiteCollectionControllerTest {
 
     @Test
     void shouldNotUpdateReturning409() throws Exception {
-        var request = put(api + "/3")
+        var request = put(api + "/4")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectToJson(TEST_COLLECTION));
 
@@ -162,15 +165,6 @@ class SiteCollectionControllerTest {
     void shouldNotDeleteReturning404() throws Exception {
         mvc.perform(delete(api + "/2"))
                 .andExpect(status().isNotFound());
-    }
-
-    @Test
-    void shouldNotDeleteReturning400() throws Exception {
-        when(repository.deleteById(1)).thenReturn(false);
-        when(repository.findById(1)).thenReturn(TEST_COLLECTION);
-
-        mvc.perform(delete(api + "/1"))
-                .andExpect(status().isBadRequest());
     }
 
     private String objectToJson(Object object) throws JsonProcessingException {

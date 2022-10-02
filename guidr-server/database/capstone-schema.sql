@@ -8,8 +8,8 @@ CREATE TABLE Address (
 	zip_code integer NOT NULL,
 	city varchar(255) NOT NULL,
     state varchar(2) NOT NULL,
-    latitude decimal,
-    longitude decimal
+    latitude decimal(8,6),
+    longitude decimal(8,6)
     );
 
 CREATE TABLE Collection (
@@ -67,23 +67,26 @@ CREATE TABLE Facts (
 	references Landmarks(landmark_id));
   
 
-insert into Address (address, zip_code, city, state)
+insert into Address (address, zip_code, city, state, latitude, longitude)
 	values
-    ('Stone St', '10004', 'NYC', 'NY'),
-    ('1 Bowling Green', '10004', 'NYC', 'NY'),
-    ('Broadway & Morris St', '10004', 'NYC', 'NY'),
-    ('World Trade Center', '10004', 'NYC', 'NY');
+    ('59th Street', '10019', 'New York', 'NY', '40.785091', '-73.968285'),
+    ('20 W 34th St.', '10001', 'New York', 'NY', '40.748817', '-73.985428'),
+    ('Liberty Island', '10004', 'New York', 'NY', '40.689247', '-74.044502'),
+    ('Fort Lee', '07024', 'New Jersey', 'NJ', '40.851616', '-73.952362'),
+    ('42nd Street Manhattan', '10036', 'New York', 'NY', '40.758896', '-73.985130');
 
 insert into Collection (`name`, `description`)
 	values
-    ('New York-Collection #1', 'Go on a tour of downtown New York!');
+    ('New York Big Attractions in the Big Apple', 'Go on a tour of downtown New York!'),
+    ('Chicago', 'Tour Chicago!');
 
 insert into Landmarks (`name`, price, address_id, collection_id)
 	values
-    ('Stone Street Historic District', '0', 1, 1),
-    ('US Custom House', '0', 1, 1),
-    ('Charging Bull', '0', 1, 1),
-    ('Oculus', '0', 1, 1);
+    ('Central Park', '0', 1, 1),
+    ('Empire State Building', '0', 2, 1),
+    ('Statue of Liberty', '0', 3, 1),
+    ('George Washington Bridge', '0', 4, 1),
+    ('Times Square', '0', 5, 1);
     
 insert into `User` (username, password_hash, disabled)
 	values
@@ -107,5 +110,22 @@ insert into user_role (user_id, role_id)
     
 insert into Facts (`description`, landmark_id)
 	values
-    ('Stone Street Historic District description fun fact', 1),
-    ('US Custom House description fun fact', 2);
+    ('The area we now call Central Park used to be home to a village founded in 1825 by freed American slaves. 
+	It was home not only to property-owning African Americans but also to a healthy population of German and Irish residents.', 1),
+    ('Central Park is the most filmed location in the world.', 1),
+    ('Central Park is larger than the country of Monaco.', 1),
+    ('It was constructed during a race to create the world’s tallest building.', 2),
+    ('A few daredevils have parachuted from the building’s observation deck.', 2),
+    ('The Empire State Building’s antenna is hit by lightning an average of 25 times a year.', 2),
+    ('Each of the seven spikes on her crown represent the seven oceans and the seven continents of the world.', 3),
+    ('In 1916 the statue suffered minor damages from the Germans and nobody has been allowed to go into 
+	the torch since.', 3),
+    ('The statue is green because of the oxidation of copper. The metal is 
+	slightly damaged and corroded.', 3),
+    ('It carries well over 100 million vehicles every year.', 4),
+    ('It was designed by some of the world’s most renowned architects.', 4),
+    ('The bridge is supported by 4 main cables and 105,986 wires.', 4),
+    ('The first Times Square New Years Eve ball drop was held in 1907.', 5),
+    ('It draws 50 million visitors a year.', 5),
+    ('The largest crowd in its history—an estimated 2 million people—celebrated US victory in World War II 
+	on August 14, 1945.', 5);

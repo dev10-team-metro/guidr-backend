@@ -1,9 +1,13 @@
 package learn.guidr.controllers;
 
 import learn.guidr.data.DataAccessException;
+<<<<<<< HEAD
 import learn.guidr.domain.SiteCollectionService;
+=======
+>>>>>>> origin/guidrD3
 import learn.guidr.domain.Result;
 import learn.guidr.domain.ResultType;
+import learn.guidr.domain.SiteCollectionService;
 import learn.guidr.models.SiteCollection;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

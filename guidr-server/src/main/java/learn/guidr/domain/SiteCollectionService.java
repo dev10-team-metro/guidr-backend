@@ -2,6 +2,8 @@ package learn.guidr.domain;
 
 import learn.guidr.data.CollectionRepository;
 import learn.guidr.data.DataAccessException;
+import learn.guidr.data.LandmarkRepository;
+import learn.guidr.data.ReviewRepository;
 import learn.guidr.models.SiteCollection;
 
 import org.springframework.stereotype.Service;
@@ -12,8 +14,14 @@ import java.util.List;
 public class SiteCollectionService {
     private final CollectionRepository repository;
 
-    public SiteCollectionService(CollectionRepository repository){
+    private final LandmarkRepository landmarkRepository;
+
+    private final ReviewRepository reviewRepository;
+
+    public SiteCollectionService(CollectionRepository repository, LandmarkRepository landmarkRepository, ReviewRepository reviewRepository){
         this.repository = repository;
+        this.landmarkRepository = landmarkRepository;
+        this.reviewRepository = reviewRepository;
     }
 
     public List<SiteCollection> findAll() throws DataAccessException {
@@ -69,11 +77,18 @@ public class SiteCollectionService {
     public Result<SiteCollection> deleteById(int collectionId) throws DataAccessException {
         Result<SiteCollection> result = new Result<>();
 
+        if(isReferencedByLandmark(collectionId)){
+            result.addMessage("Cannot delete a referenced collection (LANDMARK)", ResultType.INVALID);
+        }
+
+        if(isReferencedByReview(collectionId)){
+            result.addMessage("Cannot delete a referenced collection (REVIEW)", ResultType.INVALID);
+        }
+
         if(!repository.deleteById(collectionId)){
             result.addMessage("Collection does not exist", ResultType.NOT_FOUND);
         }
 
-        //todo validation
 
         return result;
     }
@@ -106,6 +121,20 @@ public class SiteCollectionService {
         return findAll().stream()
                 .anyMatch(collection1 -> collection1.getLandmarks().equals(collection.getLandmarks()));
     }
+
+    private boolean isReferencedByLandmark(int collectionId) throws DataAccessException {
+
+        return landmarkRepository.findAll().stream()
+                .anyMatch(collection -> collection.getCollectionId() == collectionId);
+
+    }
+    private boolean isReferencedByReview(int collectionId) throws DataAccessException {
+
+        return reviewRepository.findAll().stream()
+                .anyMatch(collection -> collection.getCollectionId() == collectionId);
+
+    }
+
 
 
 

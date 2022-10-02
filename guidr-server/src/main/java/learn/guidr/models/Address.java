@@ -1,5 +1,6 @@
 package learn.guidr.models;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Address {
@@ -14,6 +15,10 @@ public class Address {
 
     private int zipCode;
 
+    private BigDecimal latitude;
+
+    private BigDecimal longitude;
+
     public Address(){
 
     }
@@ -24,6 +29,16 @@ public class Address {
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
+    }
+
+    public Address(int addressId, String address, String city, String state, int zipCode, BigDecimal latitude, BigDecimal longitude) {
+        this.addressId = addressId;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getAddressId() {
@@ -66,17 +81,33 @@ public class Address {
         this.zipCode = zipCode;
     }
 
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address1 = (Address) o;
-        return addressId == address1.addressId && zipCode == address1.zipCode && address.equals(address1.address) && city.equals(address1.city) && state.equals(address1.state);
+        return addressId == address1.addressId && zipCode == address1.zipCode && address.equals(address1.address) && city.equals(address1.city) && state.equals(address1.state) && Objects.equals(latitude, address1.latitude) && Objects.equals(longitude, address1.longitude);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(addressId, address, city, state, zipCode);
+        return Objects.hash(addressId, address, city, state, zipCode, latitude, longitude);
     }
 
     @Override
@@ -87,6 +118,8 @@ public class Address {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipCode=" + zipCode +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
                 '}';
     }
 }

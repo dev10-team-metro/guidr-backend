@@ -7,7 +7,9 @@ CREATE TABLE Address (
 	address varchar(1000) NOT NULL,
 	zip_code integer NOT NULL,
 	city varchar(255) NOT NULL,
-    state varchar(2) NOT NULL);
+    state varchar(2) NOT NULL,
+    latitude decimal,
+    longitude decimal);
 
 CREATE TABLE Collection (
 	collection_id integer primary key auto_increment,
@@ -59,6 +61,7 @@ CREATE TABLE user_role (
 	facts_id integer primary key auto_increment,
     `description` varchar(2355) NOT NULL,
     landmark_id integer NOT NULL,
+    image varchar(2355),
     constraint fk_landmark_id foreign key(landmark_id)
 	references Landmarks(landmark_id));
     

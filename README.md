@@ -6,20 +6,20 @@ This backend will allow users to login, as well as perform CRUD operations for `
 
 ## Getting Started
 
-- run `npm i` or `npm install` in order to install all dependencies
-- use the command `npm start` to run a live server!
+-   run `npm i` or `npm install` in order to install all dependencies
+-   use the command `npm start` to run a live server!
 
 ## Endpoints
 
-Quick Links: [Users Overview](#users-overview) | [Collections Overview](#collections-overview) | [Landmarks Overview](#landmarks-overview) | [Reviews Overview](#reviews-overview)
+Quick Links: [Users Overview](#users-overview) | [Collections Overview](#collections-overview) | [Landmarks Overview](#landmarks-overview) | [Reviews Overview](#reviews-overview) | [Address Overview](#address-overview) | [Facts Overview](#facts-overview)
 
 ---
 
 ### Users Overview
 
-| Method | Endpoint                   | Requires               | Description             |
-| ------ | -------------------------- | ---------------------- | ----------------------- |
-| POST   | `/api/guidr/authenticate`  | `username`, `password` | Used to log in a user.  |
+| Method | Endpoint                  | Requires               | Description            |
+| ------ | ------------------------- | ---------------------- | ---------------------- |
+| POST   | `/api/guidr/authenticate` | `username`, `password` | Used to log in a user. |
 
 ---
 
@@ -62,10 +62,9 @@ Example of what to use:
 
 ---
 
-
 ### Get Collections
 
-Method used: **[GET]** `/api/guidr/collection` 
+Method used: **[GET]** `/api/guidr/collection`
 
 On Success: Returns an array of all collections in database. Landmarks and Reviews for each Collection are not included.
 
@@ -163,9 +162,9 @@ On Success: Returns nothing.
 
 Parameters:
 
-| Parameter Name | Type               | Required | Notes                                                                                            |
-| -------------- | ------------------ | -------- | ------------------------------------------------------------------------------------------------ |
-| Authorization  | **Header**         | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
+| Parameter Name | Type       | Required | Notes                                                                                            |
+| -------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------ |
+| Authorization  | **Header** | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
 
 [Top](#endpoints)
 
@@ -178,15 +177,14 @@ Parameters:
 | GET    | `/api/guidr/landmark`     | N/A                                  | Used to show all landmarks in the database.       |
 | GET    | `/api/guidr/landmark/:id` | N/A                                  | Used to show a specific landmark in the database. |
 | POST   | `/api/guidr/landmark`     | Successful Login of Any Account      | Used to add a new landmark.                       |
-| PUT    | `/api/guidr/landmark/:id` | Successful Login  of Any Account     | Used to edit a specific landmark.                 |
+| PUT    | `/api/guidr/landmark/:id` | Successful Login of Any Account      | Used to edit a specific landmark.                 |
 | DELETE | `/api/guidr/landmark/:id` | Successful Login of an Admin Account | Used to delete a specific landmark.               |
 
 ---
 
-
 ### Get Landmarks
 
-Method used: **[GET]** `/api/guidr/landmark` 
+Method used: **[GET]** `/api/guidr/landmark`
 
 On Success: Returns an array of all landmarks in database.
 
@@ -208,7 +206,6 @@ None.
 
 ---
 
-
 ### Add Landmark
 
 Method used: **[POST]** `/api/guidr/landmark`
@@ -217,14 +214,14 @@ On Success: Returns nothing.
 
 Parameters:
 
-| Parameter Name | Type                   | Required                               | Notes                                                        |
-| -------------- | ---------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| Authorization  | **Header**             | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                            |
-| name           | string                 | yes                                    | The name of the landmark.                                    |
-| price          | BigDecimal             | yes                                    | The description for the collection.                          |
-| address        | Address Object         | yes                                    | The address associated with a landmark as an object.         |
-| collectionId   | integer                | yes                                    | The id of the collection this landmark is associated with.   |
-| facts          | Array of Facts Objects | no                                     | The Facts associated with a landmark.                        |
+| Parameter Name | Type                   | Required                               | Notes                                                      |
+| -------------- | ---------------------- | -------------------------------------- | ---------------------------------------------------------- |
+| Authorization  | **Header**             | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                          |
+| name           | string                 | yes                                    | The name of the landmark.                                  |
+| price          | BigDecimal             | yes                                    | The description for the collection.                        |
+| address        | Address Object         | yes                                    | The address associated with a landmark as an object.       |
+| collectionId   | integer                | yes                                    | The id of the collection this landmark is associated with. |
+| facts          | Array of Facts Objects | no                                     | The Facts associated with a landmark.                      |
 
 Example of what to use:
 
@@ -253,15 +250,15 @@ On Success: Returns nothing.
 
 Parameters:
 
-| Parameter Name | Type                   | Required                               | Notes                                                        |
-| -------------- | ---------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| Authorization  | **Header**             | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                            |
-| landmarkId     | integer                | yes                                    | The id of the landmark.                                      |
-| name           | string                 | yes                                    | The name of the landmark.                                    |
-| price          | BigDecimal             | yes                                    | The description for the collection.                          |
-| address        | Address Object         | yes                                    | The address associated with a landmark as an object.         |
-| collectionId   | integer                | yes                                    | The id of the collection this landmark is associated with.   |
-| facts          | Array of Facts Objects | no                                     | The Facts associated with a landmark.                        |
+| Parameter Name | Type                   | Required                               | Notes                                                      |
+| -------------- | ---------------------- | -------------------------------------- | ---------------------------------------------------------- |
+| Authorization  | **Header**             | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                          |
+| landmarkId     | integer                | yes                                    | The id of the landmark.                                    |
+| name           | string                 | yes                                    | The name of the landmark.                                  |
+| price          | BigDecimal             | yes                                    | The description for the collection.                        |
+| address        | Address Object         | yes                                    | The address associated with a landmark as an object.       |
+| collectionId   | integer                | yes                                    | The id of the collection this landmark is associated with. |
+| facts          | Array of Facts Objects | no                                     | The Facts associated with a landmark.                      |
 
 Example of what to use:
 
@@ -291,9 +288,9 @@ On Success: Returns nothing.
 
 Parameters:
 
-| Parameter Name | Type               | Required | Notes                                                                                            |
-| -------------- | ------------------ | -------- | ------------------------------------------------------------------------------------------------ |
-| Authorization  | **Header**         | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
+| Parameter Name | Type       | Required | Notes                                                                                            |
+| -------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------ |
+| Authorization  | **Header** | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
 
 [Top](#endpoints)
 
@@ -301,12 +298,12 @@ Parameters:
 
 ### Reviews Overview
 
-| Method | Endpoint             | Requires                            | Description                               |
-| ------ | -------------------- | ----------------------------------- | ----------------------------------------- |
-| GET    | `/api/guidr/review`  | N/A                                 | Used to show all reviews in the database. |
-| POST   | `/api/sessions/`     | Successful Login with Any Account   | Used to add a review.                     |
-| PUT    | `/api/sessions/:id/` | Successful Login with Any Account   | Used to edit a specific review.           |
-| DELETE | `/api/sessions/:id/` | Successful Login with Admin Account | Used to delete a specific review.         |
+| Method | Endpoint            | Requires                            | Description                               |
+| ------ | ------------------- | ----------------------------------- | ----------------------------------------- |
+| GET    | `/api/guidr/review` | N/A                                 | Used to show all reviews in the database. |
+| POST   | `/api/review/`      | Successful Login with Any Account   | Used to add a review.                     |
+| PUT    | `/api/review/:id/`  | Successful Login with Any Account   | Used to edit a specific review.           |
+| DELETE | `/api/review/:id/`  | Successful Login with Admin Account | Used to delete a specific review.         |
 
 ---
 
@@ -333,7 +330,7 @@ Parameters:
 | Parameter Name | Type       | Required                               | Notes                                                |
 | -------------- | ---------- | -------------------------------------- | ---------------------------------------------------- |
 | Authorization  | **Header** | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                    |
-| descirption    | string     | no                                     | The text associated with the review.                 |
+| description    | string     | no                                     | The text associated with the review.                 |
 | rating         | BigDecimal | yes                                    | The rating associated with the review.               |
 | userId         | integer    | yes                                    | The id of the User associated with the review.       |
 | collectionId   | integer    | yes                                    | The id of the Collection associated with the review. |
@@ -363,7 +360,7 @@ Parameters:
 | -------------- | ---------- | -------------------------------------- | ---------------------------------------------------- |
 | Authorization  | **Header** | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                    |
 | reviewId       | integer    | yes                                    | The id of the review to edit.                        |
-| descirption    | string     | no                                     | The text associated with the review.                 |
+| description    | string     | no                                     | The text associated with the review.                 |
 | rating         | BigDecimal | yes                                    | The rating associated with the review.               |
 | userId         | integer    | yes                                    | The id of the User associated with the review.       |
 | collectionId   | integer    | yes                                    | The id of the Collection associated with the review. |
@@ -390,8 +387,204 @@ On Success: Returns nothing.
 
 Parameters:
 
-| Parameter Name | Type               | Required | Notes                                                                                            |
-| -------------- | ------------------ | -------- | ------------------------------------------------------------------------------------------------ |
-| Authorization  | **Header**         | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
+| Parameter Name | Type       | Required | Notes                                                                                            |
+| -------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------ |
+| Authorization  | **Header** | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
+
+[Top](#endpoints)
+
+---
+
+### Address Overview
+
+| Method | Endpoint                  | Requires                            | Description                                 |
+| ------ | ------------------------- | ----------------------------------- | ------------------------------------------- |
+| GET    | `/api/guidr/address`      | N/A                                 | Used to show all addresses in the database. |
+| POST   | `/api/guidr/address/`     | Successful Login with Any Account   | Used to add a address.                      |
+| PUT    | `/api/guidr/address/:id/` | Successful Login with Any Account   | Used to edit a specific address.            |
+| DELETE | `/api/guidr/address/:id/` | Successful Login with Admin Account | Used to delete a specific address.          |
+
+---
+
+### Get Addresses
+
+Method used: **[GET]** `api/guidr/address`
+
+On Success: Returns an array with the addresses in the database.
+
+Parameters:
+
+None.
+
+---
+
+### Add Address
+
+Method used: **[POST]** `api/guidr/address`
+
+On Success: Returns nothing.
+
+Parameters:
+
+| Parameter Name | Type       | Required                               | Notes                                                                              |
+| -------------- | ---------- | -------------------------------------- | ---------------------------------------------------------------------------------- |
+| Authorization  | **Header** | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                                                  |
+| address        | string     | yes                                    | The street address of an address.                                                  |
+| city           | string     | yes                                    | The city the address is located in.                                                |
+| state          | string     | yes                                    | The state the address is located in. **Note: State must be 2 letter abbreviation** |
+| zipCode        | integer    | yes                                    | The zip code the address is located in.                                            |
+| latitude       | BigDecimal | no                                     | The latitude of the address.                                                       |
+| longitude      | BigDecimal | no                                     | The longitude of the address.                                                      |
+
+Example of what to use:
+
+```
+{
+    address: "2300 Southern Boulevard",
+    city: "Bronx",
+    state: "NY",
+    zipCode: 10460
+}
+```
+
+---
+
+### Update Address
+
+Method used: **[PUT]** `api/guidr/address/:id`
+
+On Success: Returns nothing.
+
+Parameters:
+
+| Parameter Name | Type       | Required                               | Notes                                                                              |
+| -------------- | ---------- | -------------------------------------- | ---------------------------------------------------------------------------------- |
+| Authorization  | **Header** | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                                                  |
+| addressId      | integer    | yes                                    | The id of the address object.                                                      |
+| address        | string     | yes                                    | The street address of an address.                                                  |
+| city           | string     | yes                                    | The city the address is located in.                                                |
+| state          | string     | yes                                    | The state the address is located in. **Note: State must be 2 letter abbreviation** |
+| zipCode        | integer    | yes                                    | The zip code the address is located in.                                            |
+| latitude       | BigDecimal | no                                     | The latitude of the address.                                                       |
+| longitude      | BigDecimal | no                                     | The longitude of the address.                                                      |
+
+Example of what to use:
+
+```
+{
+    addressId : 1,
+    address: "2300 Southern Boulevard",
+    city: "Bronx",
+    state: "NY",
+    zipCode: 10460
+}
+```
+
+---
+
+### Delete Address
+
+Method used: **[DELETE]** `api/guidr/address/:id`
+
+On Success: Returns nothing.
+
+Parameters:
+
+| Parameter Name | Type       | Required | Notes                                                                                            |
+| -------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------ |
+| Authorization  | **Header** | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
+
+[Top](#endpoints)
+
+---
+
+### Facts Overview
+
+| Method | Endpoint          | Requires                            | Description                             |
+| ------ | ----------------- | ----------------------------------- | --------------------------------------- |
+| GET    | `/api/guidr/fact` | N/A                                 | Used to show all facts in the database. |
+| POST   | `/api/fact/`      | Successful Login with Any Account   | Used to add a fact.                     |
+| PUT    | `/api/fact/:id/`  | Successful Login with Any Account   | Used to edit a specific fact.           |
+| DELETE | `/api/fact/:id/`  | Successful Login with Admin Account | Used to delete a specific fact.         |
+
+---
+
+### Get Facts
+
+Method used: **[GET]** `api/guidr/fact`
+
+On Success: Returns an array with the facts in the database.
+
+Parameters:
+
+None.
+
+---
+
+### Add Fact
+
+Method used: **[POST]** `api/guidr/fact`
+
+On Success: Returns nothing.
+
+Parameters:
+
+| Parameter Name | Type       | Required                               | Notes                                                                  |
+| -------------- | ---------- | -------------------------------------- | ---------------------------------------------------------------------- |
+| Authorization  | **Header** | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                                      |
+| description    | string     | yes                                    | The text associated with the fact.                                     |
+| image          | string     | no                                     | An image associated with the fact, written as a path to a file or URL. |
+| landmarkId     | integer    | yes                                    | The landmark associated with the fact.                                 |
+
+Example of what to use:
+
+```
+{
+   description: "The Bronx Zoo receives over 2 million visitors a year!",
+   landmarkId: 1
+}
+```
+
+---
+
+### Update Fact
+
+Method used: **[PUT]** `api/guidr/fact/:id`
+
+On Success: Returns nothing.
+
+Parameters:
+
+| Parameter Name | Type       | Required                               | Notes                                                                  |
+| -------------- | ---------- | -------------------------------------- | ---------------------------------------------------------------------- |
+| Authorization  | **Header** | Yes, Acquired from a successful login. | Must have `Bearer ` before token.                                      |
+| factId         | integer    | yes                                    | The id of the fact.                                                    |
+| description    | string     | yes                                    | The text associated with the fact.                                     |
+| image          | string     | no                                     | An image associated with the fact, written as a path to a file or URL. |
+| landmarkId     | integer    | yes                                    | The landmark associated with the fact.                                 |
+
+Example of what to use:
+
+```
+{
+   factId: 1,
+   description: "The Bronx Zoo receives over 2 million visitors a year!",
+   landmarkId: 1
+}
+```
+
+---
+
+### Delete Fact
+
+Method used: **[DELETE]** `api/guidr/fact/:id`
+
+On Success: Returns nothing.
+
+Parameters:
+
+| Parameter Name | Type       | Required | Notes                                                                                            |
+| -------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------ |
+| Authorization  | **Header** | yes      | Acquired from a successful login. Requires a token from an account with an Admin role to delete. |
 
 [Top](#endpoints)

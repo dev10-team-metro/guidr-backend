@@ -23,7 +23,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
     @Override
     public List<Landmark> findAll() throws DataAccessException {
 
-        final String sql = "select l.landmark_id, l.`name`, l.price, l.image, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.image, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state, a.latitude, a.longitude " +
                 "from Landmarks l " +
                 "inner join Address a on l.address_id = a.address_id ";
 
@@ -38,7 +38,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
 
     @Override
     public Landmark findById(int id) throws DataAccessException {
-        final String sql = "select l.landmark_id, l.`name`, l.price, ,l.image, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.image, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state, a.latitude, a.longitude " +
                 "from Landmarks l " +
                 "inner join Address a on l.address_id = a.address_id " +
                 "where l.landmark_id = ?";

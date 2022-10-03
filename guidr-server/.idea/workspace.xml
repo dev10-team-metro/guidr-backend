@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/FactJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/FactJdbcTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/FactMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/FactMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/LandmarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/LandmarkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Fact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Fact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Landmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Landmark.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

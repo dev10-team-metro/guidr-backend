@@ -23,7 +23,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
     @Override
     public List<Landmark> findAll() throws DataAccessException {
 
-        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.image, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
                 "from Landmarks l " +
                 "inner join Address a on l.address_id = a.address_id ";
 
@@ -38,7 +38,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
 
     @Override
     public Landmark findById(int id) throws DataAccessException {
-        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
+        final String sql = "select l.landmark_id, l.`name`, l.price, ,l.image, l.address_id, l.collection_id, a.address, a.zip_code, a.city, a.state " +
                 "from Landmarks l " +
                 "inner join Address a on l.address_id = a.address_id " +
                 "where l.landmark_id = ?";
@@ -54,16 +54,17 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
     @Override
     public Landmark create(Landmark landmark) throws DataAccessException {
 
-        final String sql = "insert into Landmarks (`name`, price, address_id, collection_id) " +
-                "values (?, ?, ?, ?);";
+        final String sql = "insert into Landmarks (`name`, price, image, address_id, collection_id) " +
+                "values (?, ?, ?, ?, ?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, landmark.getName());
             statement.setBigDecimal(2, landmark.getPrice());
-            statement.setInt(3, landmark.getAddress().getAddressId());
-            statement.setInt(4, landmark.getCollectionId());
+            statement.setString(3, landmark.getImage());
+            statement.setInt(4, landmark.getAddress().getAddressId());
+            statement.setInt(5, landmark.getCollectionId());
             return statement;
         }, keyHolder);
 
@@ -81,6 +82,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
         final String sql = "update Landmarks set " +
                 "`name` = ?, " +
                 "price = ?, " +
+                "image = ?, " +
                 "address_id = ?, " +
                 "collection_id = ? " +
                 "where landmark_id = ?;";
@@ -88,6 +90,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
         int rowsUpdated = jdbcTemplate.update(sql,
                 landmark.getName(),
                 landmark.getPrice(),
+                landmark.getImage(),
                 landmark.getAddress().getAddressId(),
                 landmark.getCollectionId(),
                 landmark.getLandmarkId());
@@ -103,7 +106,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
 
     private void addFacts(Landmark landmark) {
 
-        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, f.facts_id, f.`description` "
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.image, l.address_id, l.collection_id, f.facts_id, f.`description` "
                 + "from Landmarks l "
                 + "inner join Facts f on l.landmark_id = f.landmark_id "
                 + "where l.landmark_id = ?";

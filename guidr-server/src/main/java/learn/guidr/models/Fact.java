@@ -8,8 +8,6 @@ public class Fact {
 
     private String description;
 
-    private String image;
-
     private int landmarkId;
 
     public Fact(int factId, String description, int landmarkId) {
@@ -20,13 +18,6 @@ public class Fact {
 
     public Fact() {
 
-    }
-
-    public Fact(int factId, String description, String image, int landmarkId) {
-        this.factId = factId;
-        this.description = description;
-        this.image = image;
-        this.landmarkId = landmarkId;
     }
 
     public int getFactId() {
@@ -53,25 +44,17 @@ public class Fact {
         this.landmarkId = landmarkId;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Fact fact = (Fact) o;
-        return factId == fact.factId && landmarkId == fact.landmarkId && description.equals(fact.description) && Objects.equals(image, fact.image);
+        return factId == fact.factId && landmarkId == fact.landmarkId && description.equals(fact.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(factId, description, image, landmarkId);
+        return Objects.hash(factId, description, landmarkId);
     }
 
     @Override
@@ -79,7 +62,6 @@ public class Fact {
         return "Fact{" +
                 "factId=" + factId +
                 ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
                 ", landmarkId=" + landmarkId +
                 '}';
     }

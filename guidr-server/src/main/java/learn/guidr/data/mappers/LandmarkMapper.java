@@ -15,6 +15,7 @@ public class LandmarkMapper implements RowMapper<Landmark> {
         landmark.setLandmarkId(rs.getInt("landmark_id"));
         landmark.setName(rs.getString("name"));
         landmark.setPrice(rs.getBigDecimal("price"));
+        landmark.setImage(rs.getString("image"));
 
         //address mapper and sitecollection mapper
 

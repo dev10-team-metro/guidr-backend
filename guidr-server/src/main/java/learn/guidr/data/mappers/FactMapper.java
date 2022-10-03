@@ -14,7 +14,6 @@ public class FactMapper implements RowMapper<Fact> {
 
         fact.setFactId(rs.getInt("facts_id"));
         fact.setDescription(rs.getString("description"));
-        fact.setImage(rs.getString("image"));
         fact.setLandmarkId(rs.getInt("landmark_id"));
 
         return fact;

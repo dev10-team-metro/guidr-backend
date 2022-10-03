@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/FactJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/FactJdbcTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/FactMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/FactMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/LandmarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/mappers/LandmarkMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Fact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Fact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Landmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/models/Landmark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/SiteCollectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/SiteCollectionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/AddressJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/AddressJdbcTemplateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/FactJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/FactJdbcTemplateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/LandmarkJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/LandmarkJdbcTemplateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/AddressMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/AddressMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/LandmarkMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/mappers/LandmarkMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/models/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/models/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/models/Landmark.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/models/Landmark.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,14 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AddressServiceTest" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.AddressServiceTest" />
         <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
-        <item itemvalue="JUnit.CollectionJdbcTemplateRepositoryTest" />
-        <item itemvalue="JUnit.learn.guidr.data in guidr-server" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.AddressServiceTest" />
       </list>
     </recent_temporary>
   </component>

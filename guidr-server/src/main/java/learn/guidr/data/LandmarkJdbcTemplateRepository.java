@@ -3,7 +3,6 @@ package learn.guidr.data;
 import learn.guidr.data.mappers.FactMapper;
 import learn.guidr.data.mappers.LandmarkMapper;
 import learn.guidr.models.Landmark;
-import learn.guidr.models.SiteCollection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -28,7 +27,13 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
                 "from Landmarks l " +
                 "inner join Address a on l.address_id = a.address_id ";
 
-        return jdbcTemplate.query(sql, new LandmarkMapper());
+        List<Landmark> landmarks = jdbcTemplate.query(sql, new LandmarkMapper());
+        if (landmarks != null){
+            for(int i = 0; i < landmarks.size(); i++){
+                addFacts(landmarks.get(i));
+            }
+        }
+        return landmarks;
     }
 
     @Override
@@ -98,7 +103,7 @@ public class LandmarkJdbcTemplateRepository implements LandmarkRepository{
 
     private void addFacts(Landmark landmark) {
 
-        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, f.facts_id, f. `description` "
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.address_id, l.collection_id, f.facts_id, f.`description` "
                 + "from Landmarks l "
                 + "inner join Facts f on l.landmark_id = f.landmark_id "
                 + "where l.landmark_id = ?";

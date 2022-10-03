@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST,
-                        "/api/authenticate").permitAll()
+                        "/api/guidr/authenticate").permitAll()
                 .antMatchers(HttpMethod.GET,
                         "/api/guidr", "/api/guidr/**").permitAll()
                 .antMatchers(HttpMethod.POST,

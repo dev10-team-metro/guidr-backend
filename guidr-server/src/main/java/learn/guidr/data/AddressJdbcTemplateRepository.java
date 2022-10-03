@@ -22,7 +22,7 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
     @Override
     public List<Address> findAll() throws DataAccessException {
 
-        final String sql = "select address_id, address, zip_code, city, state " +
+        final String sql = "select address_id, address, zip_code, city, state, latitude, longitude " +
                 "from Address;";
 
         return jdbcTemplate.query(sql, new AddressMapper());
@@ -31,8 +31,8 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
     @Override
     public Address create(Address address) throws DataAccessException {
 
-        final String sql = "insert into Address (address, zip_code, city, state) " +
-                "values (?, ?, ?, ?);";
+        final String sql = "insert into Address (address, zip_code, city, state, latitude, longitude) " +
+                "values (?, ?, ?, ?, ?, ?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
@@ -41,6 +41,8 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
             statement.setInt(2, address.getZipCode());
             statement.setString(3, address.getCity());
             statement.setString(4, address.getState());
+            statement.setBigDecimal(5, address.getLatitude());
+            statement.setBigDecimal(6, address.getLongitude());
 
             return statement;
         }, keyHolder);
@@ -61,6 +63,8 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
                 "zip_code = ?, " +
                 "city = ?, " +
                 "state = ? " +
+                "latitude = ? " +
+                "longitude = ? " +
                 "where address_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
@@ -68,6 +72,8 @@ public class AddressJdbcTemplateRepository implements AddressRepository{
                 address.getZipCode(),
                 address.getCity(),
                 address.getState(),
+                address.getLatitude(),
+                address.getLongitude(),
                 address.getAddressId());
 
         return rowsUpdated > 0;

@@ -16,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -118,7 +118,7 @@
       <module name="guidr-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="learn.guidr.data.*" />
+          <option name="PATTERN" value="learn.guidr.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -191,6 +191,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AddressServiceTest" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.AddressServiceTest" />
         <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />

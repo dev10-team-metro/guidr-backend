@@ -6,29 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/capstone-schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/capstone-schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/data/LandmarkJdbcTemplateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/LandmarkControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/LandmarkControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/ReviewControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/ReviewControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/SiteCollectionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/SiteCollectionControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/AddressJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/AddressJdbcTemplateRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/AppUserJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/AppUserJdbcTemplateRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/FactJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/FactJdbcTemplateRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/data/LandmarkJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/data/LandmarkJdbcTemplateRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/LandmarkControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/ReviewControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/SiteCollectionControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AddressJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AddressJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AppUserJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/AppUserJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/CollectionJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/FactJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/FactJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/LandmarkJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/data/ReviewJdbcTemplateRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/AddressServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/AddressServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

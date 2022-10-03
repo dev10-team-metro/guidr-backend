@@ -8,8 +8,8 @@ CREATE TABLE Address (
 	zip_code integer NOT NULL,
 	city varchar(255) NOT NULL,
     state varchar(2) NOT NULL,
-    latitude decimal,
-    longitude decimal
+    latitude decimal(8,6),
+    longitude decimal(8,6)
     );
 
 CREATE TABLE Collection (
@@ -21,6 +21,7 @@ CREATE TABLE Landmarks (
 	landmark_id integer primary key auto_increment,
 	`name` varchar(1000) NOT NULL,
 	price decimal,
+    image varchar(2355),
 	address_id integer NOT NULL,
 	collection_id integer NOT NULL,
 	constraint fk_address_id foreign key(address_id)
@@ -61,29 +62,44 @@ CREATE TABLE user_role (
 CREATE TABLE Facts (
 	facts_id integer primary key auto_increment,
     `description` varchar(2355) NOT NULL,
-    image varchar(2355),
     landmark_id integer NOT NULL,
     constraint fk_landmark_id foreign key(landmark_id)
 	references Landmarks(landmark_id));
   
 
-insert into Address (address, zip_code, city, state)
+insert into Address (address, zip_code, city, state, latitude, longitude)
 	values
-    ('Stone St', '10004', 'NYC', 'NY'),
-    ('1 Bowling Green', '10004', 'NYC', 'NY'),
-    ('Broadway & Morris St', '10004', 'NYC', 'NY'),
-    ('World Trade Center', '10004', 'NYC', 'NY');
+    ('59th Street', '10019', 'New York', 'NY', '40.785091', '-73.968285'),
+    ('20 W 34th St.', '10001', 'New York', 'NY', '40.748817', '-73.985428'),
+    ('Liberty Island', '10004', 'New York', 'NY', '40.689247', '-74.044502'),
+    ('Fort Lee', '07024', 'New Jersey', 'NJ', '40.851616', '-73.952362'),
+    ('42nd Street Manhattan', '10036', 'New York', 'NY', '40.758896', '-73.985130'),
+    ('90 Bedford Street', '10014', 'NYC', 'NY'),
+    ('295 Lafayette Street', '10012', 'NYC', 'NY'),
+    ('45 Grand Central Terminal', '10017', 'NYC', 'NY'),
+    ('45 Rockefeller Plaza', '10111', 'NYC', 'NY');
 
 insert into Collection (`name`, `description`)
 	values
-    ('New York-Collection #1', 'Go on a tour of downtown New York!');
+    ('New York Big Attractions in the Big Apple', 'Go on a tour of downtown New York!'),
+    ('Chicago', 'Tour Chicago!'),
+    ('New York Cinema collection', 'As New York City is one of the most famous cities in the entire world, it is no surprise that some of your favorite films and television shows have actually been set in the Big Apple. When you think about films such as 
+    The Godfather, Ghostbusters, Spider-Man, and TV shows such as Friends and Seinfeld, one of the first things that pops into your head regarding the setting is quite simply, New York. 
+    Though today, Hollywood would most likely to be associated with films and television, New York City has had an enormous impact on said arts, and is sometimes considered the original Hollywood. Combined with the fact that NYC is a vast cultural melting pot, 
+    AND the biggest metropolitan area in the world, it makes sense that it would be a prime 
+    location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.');;
 
-insert into Landmarks (`name`, price, address_id, collection_id)
+insert into Landmarks (`name`, price, image, address_id, collection_id)
 	values
-    ('Stone Street Historic District', '0', 1, 1),
-    ('US Custom House', '0', 1, 1),
-    ('Charging Bull', '0', 1, 1),
-    ('Oculus', '0', 1, 1);
+    ('Central Park', '0', 'https://i.imgur.com/4LA456D.jpg', 1, 1),
+    ('Empire State Building', '0', 'https://i.imgur.com/gsSDo0R.jpg', 2, 1),
+    ('Statue of Liberty', '0', 'https://i.imgur.com/ZVP8su3.jpg', 3, 1),
+    ('George Washington Bridge', '0', 'https://i.imgur.com/I82neo6.jpg', 4, 1),
+    ('Times Square', '0', 'https://i.imgur.com/OJO6ME9.jpg', 5, 1),
+    ('Friends Apartment', '0', 1, 1),
+    ('Puck Building', '0', 2, 1),
+    ('Grand Central Terminal', '0', 3, 1),
+    ('Rockefeller Center', '40', 4, 1);
     
 insert into `User` (username, password_hash, disabled)
 	values
@@ -107,33 +123,26 @@ insert into user_role (user_id, role_id)
     
 insert into Facts (`description`, landmark_id)
 	values
-    ('Stone Street Historic District description fun fact', 1),
-    ('US Custom House description fun fact', 2);
-    
-
-
-
-insert into Collection (`name`, `description`)
-	values
-    ('New York Cinema collection', 'As New York City is one of the most famous cities in the entire world, it is no surprise that some of your favorite films and television shows have actually been set in the Big Apple. When you think about films such as The Godfather, Ghostbusters, Spider-Man, and TV shows such as Friends and Seinfeld, one of the first things that pops into your head regarding the setting is quite simply, New York. Though today, Hollywood would most likely to be associated with films and television, New York City has had an enormous impact on said arts, and is sometimes considered the original Hollywood. Combined with the fact that NYC is a vast cultural melting pot, AND the biggest metropolitan area in the world, it makes sense that it would be a prime location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.');
-
-
-insert into Landmarks (`name`, price, address_id, collection_id)
-	values
-    ('Friends Apartment', '0', 1, 1),
-    ('Puck Building', '0', 2, 1),
-    ('Grand Central Terminal', '0', 3, 1),
-    ('Rockefeller Center', '40', 4, 1);
-    
-insert into Address (address, zip_code, city, state)
-	values
-    ('90 Bedford Street', '10014', 'NYC', 'NY'),
-    ('295 Lafayette Street', '10012', 'NYC', 'NY'),
-    ('45 Grand Central Terminal', '10017', 'NYC', 'NY'),
-    ('45 Rockefeller Plaza', '10111', 'NYC', 'NY');
-    
-insert into Facts (`description`, landmark_id)
-	values
+    ('The area we now call Central Park used to be home to a village founded in 1825 by freed American slaves. 
+	It was home not only to property-owning African Americans but also to a healthy population of German and Irish residents.', 1),
+    ('Central Park is the most filmed location in the world.', 1),
+    ('Central Park is larger than the country of Monaco.', 1),
+    ('It was constructed during a race to create the world’s tallest building.', 2),
+    ('A few daredevils have parachuted from the building’s observation deck.', 2),
+    ('The Empire State Building’s antenna is hit by lightning an average of 25 times a year.', 2),
+    ('Each of the seven spikes on her crown represent the seven oceans and the seven continents of the world.', 3),
+    ('In 1916 the statue suffered minor damages from the Germans and nobody has been allowed to go into 
+	the torch since.', 3),
+    ('The statue is green because of the oxidation of copper. The metal is 
+	slightly damaged and corroded.', 3),
+    ('It carries well over 100 million vehicles every year.', 4),
+    ('It was designed by some of the world’s most renowned architects.', 4),
+    ('The bridge is supported by 4 main cables and 105,986 wires.', 4),
+    ('The first Times Square New Years Eve ball drop was held in 1907.', 5),
+    ('It draws 50 million visitors a year.', 5),
+    ('The largest crowd in its history—an estimated 2 million people—celebrated US victory in World War II 
+	on August 14, 1945.', 5),
+  
     ('Although there is not Central Perk Cafe on the botton of the Friends Apartment building, there is a cafe called Little Owl, and yes they do sell Friends memorabilia', 1),
     ('The actual apartments are completely different to those portrayed in the show. Sadly the show was filmed on a set in Los Angeles, not in NYC', 1),
     ('Unlike the rent price portrayed in the show, which was $200 per month, the current price for an apartment on 90 Bedford Street could go for about $4,500 per month. However, the apartment is not for sale.', 1),
@@ -149,4 +158,3 @@ insert into Facts (`description`, landmark_id)
     ('Rockefeller Center is set on the Rockefeller Plaza, which is the home to two more famous NYC landmarks, the Rockefeller Ice Skating Rink, as well as the Rockefeller Tree(Seasonal), both of which have been the background for even more films', 4),
     ('Originally built from 1930 - 1939, the Rockefeller Center was originally planned as a building to replace the Metropolitan Opera House', 4),
     ('The term Radio City Music Hall originated from John Rockefeller Jr. not wanting the name of his family to be associated with the building, though as we know now that did not go to plan entirely', 4);
-    

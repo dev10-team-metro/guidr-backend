@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f922b73d-66f3-4df3-a723-6e7d87ac0402" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/FactService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/SiteCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/controllers/SiteCollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/LandmarkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/SiteCollectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/guidr/domain/SiteCollectionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/SiteCollectionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/controllers/SiteCollectionControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/AddressServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/LandmarkServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/LandmarkServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/ReviewServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/ReviewServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/SiteCollectionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/learn/guidr/domain/SiteCollectionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/LandmarkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/LandmarkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/SiteCollectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/controllers/SiteCollectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/domain/LandmarkService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/domain/LandmarkService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/learn/guidr/domain/SiteCollectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/learn/guidr/domain/SiteCollectionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/LandmarkControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/LandmarkControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/ReviewControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/ReviewControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/controllers/SiteCollectionControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/CollectionServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/LandmarkServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/LandmarkServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/ReviewServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/learn/guidr/domain/ReviewServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

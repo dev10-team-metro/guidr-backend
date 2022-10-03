@@ -21,6 +21,7 @@ CREATE TABLE Landmarks (
 	landmark_id integer primary key auto_increment,
 	`name` varchar(1000) NOT NULL,
 	price decimal,
+    image varchar(2355),
 	address_id integer NOT NULL,
 	collection_id integer NOT NULL,
 	constraint fk_address_id foreign key(address_id)
@@ -61,7 +62,6 @@ CREATE TABLE user_role (
 CREATE TABLE Facts (
 	facts_id integer primary key auto_increment,
     `description` varchar(2355) NOT NULL,
-    image varchar(2355),
     landmark_id integer NOT NULL,
     constraint fk_landmark_id foreign key(landmark_id)
 	references Landmarks(landmark_id));
@@ -80,13 +80,13 @@ insert into Collection (`name`, `description`)
     ('New York Big Attractions in the Big Apple', 'Go on a tour of downtown New York!'),
     ('Chicago', 'Tour Chicago!');
 
-insert into Landmarks (`name`, price, address_id, collection_id)
+insert into Landmarks (`name`, price, image, address_id, collection_id)
 	values
-    ('Central Park', '0', 1, 1),
-    ('Empire State Building', '0', 2, 1),
-    ('Statue of Liberty', '0', 3, 1),
-    ('George Washington Bridge', '0', 4, 1),
-    ('Times Square', '0', 5, 1);
+    ('Central Park', '0', 'https://i.imgur.com/4LA456D.jpg', 1, 1),
+    ('Empire State Building', '0', 'https://i.imgur.com/gsSDo0R.jpg', 2, 1),
+    ('Statue of Liberty', '0', 'https://i.imgur.com/ZVP8su3.jpg', 3, 1),
+    ('George Washington Bridge', '0', 'https://i.imgur.com/I82neo6.jpg', 4, 1),
+    ('Times Square', '0', 'https://i.imgur.com/OJO6ME9.jpg', 5, 1);
     
 insert into `User` (username, password_hash, disabled)
 	values

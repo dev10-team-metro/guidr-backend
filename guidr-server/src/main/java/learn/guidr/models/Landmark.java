@@ -15,6 +15,8 @@ public class Landmark {
 
     private BigDecimal price;
 
+    private String image;
+
     private Address address;
 
     private int collectionId;
@@ -25,10 +27,11 @@ public class Landmark {
 
     }
 
-    public Landmark(int landmarkId, String name, BigDecimal price, Address address, int collectionId) {
+    public Landmark(int landmarkId, String name, BigDecimal price, String image, Address address, int collectionId) {
         this.landmarkId = landmarkId;
         this.name = name;
         this.price = price;
+        this.image = image;
         this.address = address;
         this.collectionId = collectionId;
     }
@@ -55,6 +58,14 @@ public class Landmark {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Address getAddress() {
@@ -86,12 +97,12 @@ public class Landmark {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Landmark landmark = (Landmark) o;
-        return landmarkId == landmark.landmarkId && collectionId == landmark.collectionId && name.equals(landmark.name) && price.equals(landmark.price) && address.equals(landmark.address) && Objects.equals(facts, landmark.facts);
+        return landmarkId == landmark.landmarkId && collectionId == landmark.collectionId && name.equals(landmark.name) && price.equals(landmark.price) && image.equals(landmark.image) && address.equals(landmark.address) && facts.equals(landmark.facts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(landmarkId, name, price, address, collectionId, facts);
+        return Objects.hash(landmarkId, name, price, image, address, collectionId, facts);
     }
 
     @Override
@@ -100,6 +111,7 @@ public class Landmark {
                 "landmarkId=" + landmarkId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", image='" + image + '\'' +
                 ", address=" + address +
                 ", collectionId=" + collectionId +
                 ", facts=" + facts +

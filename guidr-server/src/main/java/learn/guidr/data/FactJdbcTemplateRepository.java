@@ -23,7 +23,7 @@ public class FactJdbcTemplateRepository implements FactRepository {
     @Override
     public List<Fact> findAll() throws DataAccessException {
 
-        final String sql = "select facts_id, `description`, image, landmark_id " +
+        final String sql = "select facts_id, `description`, landmark_id " +
                 "from Facts;";
 
         return jdbcTemplate.query(sql, new FactMapper());
@@ -32,7 +32,7 @@ public class FactJdbcTemplateRepository implements FactRepository {
     @Override
     public List<Fact> findByLandmark(int landmarkId) throws DataAccessException {
 
-        final String sql = "select f.facts_id, f.`description`, f.image, f.landmark_id " +
+        final String sql = "select f.facts_id, f.`description`, f.landmark_id " +
                 "from Facts f " +
                 "inner join Landmarks l on f.landmark_id = l.landmark_id " +
                 "where l.landmark_id = ? ";
@@ -43,14 +43,13 @@ public class FactJdbcTemplateRepository implements FactRepository {
     @Override
     public Fact create(Fact fact) throws DataAccessException {
 
-        final String sql = "insert into Facts (`description`, image, landmark_id) " +
+        final String sql = "insert into Facts (`description`, landmark_id) " +
                 "values (?, ?, ?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, fact.getDescription());
-            statement.setString(2, fact.getImage());
             statement.setInt(3, fact.getLandmarkId());
             return statement;
         }, keyHolder);
@@ -68,13 +67,11 @@ public class FactJdbcTemplateRepository implements FactRepository {
     public boolean update(Fact fact) throws DataAccessException {
         final String sql = "update Facts set " +
                 "`description` = ?, " +
-                "image = ? " +
                 "landmark_id = ? " +
                 "where facts_id = ?;";
 
         int rowsUpdated = jdbcTemplate.update(sql,
                 fact.getDescription(),
-                fact.getImage(),
                 fact.getLandmarkId(),
                 fact.getFactId());
 

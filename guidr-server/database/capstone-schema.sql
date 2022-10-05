@@ -142,7 +142,6 @@ insert into Facts (`description`, landmark_id)
     ('It draws 50 million visitors a year.', 5),
     ('The largest crowd in its history—an estimated 2 million people—celebrated US victory in World War II 
 	on August 14, 1945.', 5),
-  
     ('Although there is not Central Perk Cafe on the botton of the Friends Apartment building, there is a cafe called Little Owl, and yes they do sell Friends memorabilia', 6),
     ('The actual apartments are completely different to those portrayed in the show. Sadly the show was filmed on a set in Los Angeles, not in NYC', 6),
     ('Unlike the rent price portrayed in the show, which was $200 per month, the current price for an apartment on 90 Bedford Street could go for about $4,500 per month. However, the apartment is not for sale.', 6),

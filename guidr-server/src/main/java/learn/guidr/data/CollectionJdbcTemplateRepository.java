@@ -1,8 +1,10 @@
 package learn.guidr.data;
 
 import learn.guidr.data.mappers.CollectionMapper;
+import learn.guidr.data.mappers.FactMapper;
 import learn.guidr.data.mappers.LandmarkMapper;
 import learn.guidr.data.mappers.ReviewMapper;
+import learn.guidr.models.Landmark;
 import learn.guidr.models.SiteCollection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -44,6 +46,7 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
             addLandmarks(result);
             addReviews(result);
         }
+
         return result;
     }
 
@@ -123,6 +126,13 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
                 + "where collection_id = ?";
 
         var landmarks = jdbcTemplate.query(sql, new LandmarkMapper(), collection.getCollectionId());
+
+        if (landmarks != null){
+            for(int i = 0; i < landmarks.size(); i++){
+                addFacts(landmarks.get(i));
+            }
+        }
+
         collection.setLandmarks(landmarks);
     }
 
@@ -134,5 +144,16 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
 
         var reviews = jdbcTemplate.query(sql, new ReviewMapper(), collection.getCollectionId());
         collection.setReviews(reviews);
+    }
+
+    private void addFacts(Landmark landmark) {
+
+        final String sql = "select l.landmark_id, l.`name`, l.price, l.image, l.address_id, l.collection_id, f.facts_id, f.`description` "
+                + "from Landmarks l "
+                + "inner join Facts f on l.landmark_id = f.landmark_id "
+                + "where l.landmark_id = ?";
+
+        var facts = jdbcTemplate.query(sql, new FactMapper(), landmark.getLandmarkId());
+        landmark.setFacts(facts);
     }
 }

@@ -4,10 +4,15 @@ The backend for Team Metro's Capstone Project `Guidr`.
 
 This backend will allow users to login, as well as perform CRUD operations for `Landmarks`, `Reviews`, and `Collections` (referred to as SiteCollections).
 
+## Database Schema Diagram
+
+![Guidr Backend Database Schema](https://i.imgur.com/Gmwvhuf.png)
+
 ## Getting Started
 
--   run `npm i` or `npm install` in order to install all dependencies
--   use the command `npm start` to run a live server!
+- Run database creation script in `capstone-schema.sql` or `capstone-schema-test.sql`
+- Make sure information is provided for `DB_URL`, `DB_USER`, and `DB_PASS` environment variables
+- Run `App.java`
 
 ## Endpoints
 

@@ -74,10 +74,13 @@ insert into Address (address, zip_code, city, state, latitude, longitude)
     ('Liberty Island', '10004', 'New York', 'NY', '40.689247', '-74.044502'),
     ('Fort Lee', '07024', 'New Jersey', 'NJ', '40.851616', '-73.952362'),
     ('42nd Street Manhattan', '10036', 'New York', 'NY', '40.758896', '-73.985130'),
-    ('90 Bedford Street', '10014', 'NYC', 'NY', '40.732351', '-74.007514'),
-    ('295 Lafayette Street', '10012', 'NYC', 'NY', '40.724709', '-73.999847'),
-    ('45 Grand Central Terminal', '10017', 'NYC', 'NY', '40.752949', '-73.979026'),
-    ('45 Rockefeller Plaza', '10111', 'NYC', 'NY', '40.758744', '-73.980868');
+    ('90 Bedford Street', '10014', 'New York', 'NY', '40.732351', '-74.007514'),
+    ('295 Lafayette Street', '10012', 'New York', 'NY', '40.724709', '-73.999847'),
+    ('45 Grand Central Terminal', '10017', 'New York', 'NY', '40.752949', '-73.979026'),
+    ('45 Rockefeller Plaza', '10111', 'New York', 'NY', '40.758744', '-73.980868'),
+    ('101 Independence Ave SE', 20540, 'Washington', 'DC', 38.888688, -77.006913),
+    ('5100 Las Vegas Blvd S', 89119, 'Las Vegas', 'NV', 36.081855, -115.175113),
+    ('400 Broad Street', 98109, 'Seattle', 'WA', 47.6205099, -122.3514714);
 
 insert into Collection (`name`, `description`)
 	values
@@ -86,7 +89,10 @@ insert into Collection (`name`, `description`)
     The Godfather, Ghostbusters, Spider-Man, and TV shows such as Friends and Seinfeld, one of the first things that pops into your head regarding the setting is quite simply, New York. 
     Though today, Hollywood would most likely to be associated with films and television, New York City has had an enormous impact on said arts, and is sometimes considered the original Hollywood. Combined with the fact that NYC is a vast cultural melting pot, 
     AND the biggest metropolitan area in the world, it makes sense that it would be a prime 
-    location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.');
+    location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.'),
+    ('Washington DC: Presidential Tour', 'Washington, the nations capital is home to some of the most important buildings in the country. The home of the head of the nation, is the congregation for important decision making, marches, events, as well as discourse with nations'),
+    ('Las Vegas: The City of Lights', 'Besides being associated with gambling, partying and casinos, Las Vegas is a beautiful city with a plethora of landmarks to tour'),
+    ('Seattle: Tour the Pacific North West', 'Known as the gem of the pacific northwest, Seattle is an amazing city with plenty of opportunities to travel and tour');
 
 insert into Landmarks (`name`, price, image, address_id, collection_id)
 	values
@@ -99,7 +105,13 @@ insert into Landmarks (`name`, price, image, address_id, collection_id)
     ('Friends Apartment', '0', 'https://i.imgur.com/53QLhbS.jpg', 6, 2),
     ('Puck Building', '0', 'https://i.imgur.com/fuWb1LT.jpg', 7, 2),
     ('Grand Central Terminal', '0', 'https://i.imgur.com/YjI4143.jpg', 8, 2),
-    ('Rockefeller Center', '40', 'https://i.imgur.com/gHPE9Zo.jpg', 9, 2);
+    ('Rockefeller Center', '40', 'https://i.imgur.com/gHPE9Zo.jpg', 9, 2),
+    
+    ('Capitol', '0', 'https://i.imgur.com/YSlqoEF.jpg', 10, 4),
+    ('Welcome to Las Vegas', '0', 'https://i.imgur.com/23sKcZk.jpg', 11, 5),
+    ('The Space Needle', '0', 'https://i.imgur.com/acl7ghT.jpg', 12, 6);
+    
+    
     
 insert into `User` (username, password_hash, disabled)
 	values
@@ -158,5 +170,8 @@ insert into Facts (`description`, landmark_id)
     ('Fact 1: Rockefeller Center is the home of many famous television shows, particularly late night shows such as The Tonight Show, Late Night with Seth Meyers, and is home to the one and only Saturday Night Live', 9),
     ('Fact 2: Rockefeller Center is set on the Rockefeller Plaza, which is the home to two more famous NYC landmarks, the Rockefeller Ice Skating Rink, as well as the Rockefeller Tree(Seasonal), both of which have been the background for even more films', 9),
     ('Fact 3: Originally built from 1930 - 1939, the Rockefeller Center was originally planned as a building to replace the Metropolitan Opera House', 9),
-    ('Fact 4: The term Radio City Music Hall originated from John Rockefeller Jr. not wanting the name of his family to be associated with the building, though as we know now that did not go to plan entirely', 9);
+    ('Fact 4: The term Radio City Music Hall originated from John Rockefeller Jr. not wanting the name of his family to be associated with the building, though as we know now that did not go to plan entirely', 9),
+    ('Fact 1: Its the capital.', 5),
+    ('Fact 1: Its Las Vegas.', 6),
+    ('Fact 1: Its Seattle.', 7);
     

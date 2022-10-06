@@ -30,7 +30,14 @@ public class CollectionJdbcTemplateRepository implements CollectionRepository{
         final String sql = "select collection_id, `name`, `description` " +
                 "from Collection;";
 
-        return jdbcTemplate.query(sql, new CollectionMapper());
+        List<SiteCollection> result =  jdbcTemplate.query(sql, new CollectionMapper());
+
+        if (result != null){
+            for(int i = 0; i < result.size(); i++){
+                addLandmarks(result.get(i));
+            }
+        }
+        return result;
     }
 
     @Override

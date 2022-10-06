@@ -77,7 +77,9 @@ insert into Address (address, zip_code, city, state, latitude, longitude)
     ('90 Bedford Street', '10014', 'NYC', 'NY', '40.732351', '-74.007514'),
     ('295 Lafayette Street', '10012', 'NYC', 'NY', '40.724709', '-73.999847'),
     ('45 Grand Central Terminal', '10017', 'NYC', 'NY', '40.752949', '-73.979026'),
-    ('45 Rockefeller Plaza', '10111', 'NYC', 'NY', '40.758744', '-73.980868');
+    ('45 Rockefeller Plaza', '10111', 'NYC', 'NY', '40.758744', '-73.980868'),
+    ('201 E Randolph St', '60602', 'Chicago', 'IL', '41.882657', '-87.623304');
+    
 
 insert into Collection (`name`, `description`)
 	values
@@ -86,7 +88,8 @@ insert into Collection (`name`, `description`)
     The Godfather, Ghostbusters, Spider-Man, and TV shows such as Friends and Seinfeld, one of the first things that pops into your head regarding the setting is quite simply, New York. 
     Though today, Hollywood would most likely to be associated with films and television, New York City has had an enormous impact on said arts, and is sometimes considered the original Hollywood. Combined with the fact that NYC is a vast cultural melting pot, 
     AND the biggest metropolitan area in the world, it makes sense that it would be a prime 
-    location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.');
+    location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.'),
+    ('Chicago: Big Attractions', 'Come tour Chicago!');
 
 insert into Landmarks (`name`, price, image, address_id, collection_id)
 	values
@@ -99,7 +102,9 @@ insert into Landmarks (`name`, price, image, address_id, collection_id)
     ('Friends Apartment', '0', 'https://i.imgur.com/53QLhbS.jpg', 6, 2),
     ('Puck Building', '0', 'https://i.imgur.com/fuWb1LT.jpg', 7, 2),
     ('Grand Central Terminal', '0', 'https://i.imgur.com/YjI4143.jpg', 8, 2),
-    ('Rockefeller Center', '40', 'https://i.imgur.com/gHPE9Zo.jpg', 9, 2);
+    ('Rockefeller Center', '40', 'https://i.imgur.com/gHPE9Zo.jpg', 9, 2),
+    
+    ('Cloud Gate', '0', 'https://i.imgur.com/Tm7hTrK.jpg', 10, 3);
     
 insert into `User` (username, password_hash, disabled)
 	values

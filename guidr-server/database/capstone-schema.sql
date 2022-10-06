@@ -79,9 +79,9 @@ insert into Address (address, zip_code, city, state, latitude, longitude)
     ('45 Grand Central Terminal', '10017', 'New York', 'NY', '40.752949', '-73.979026'),
     ('45 Rockefeller Plaza', '10111', 'New York', 'NY', '40.758744', '-73.980868'),
     ('201 E Randolph St', '60602', 'Chicago', 'IL', '41.882657', '-87.623304'),
-    ('101 Independence Ave SE', 20540, 'Washington', 'DC', 38.888688, -77.006913),
-    ('5100 Las Vegas Blvd S', 89119, 'Las Vegas', 'NV', 36.081855, -115.175113),
-    ('400 Broad Street', 98109, 'Seattle', 'WA', 47.6205099, -122.3514714);
+    ('101 Independence Ave SE', 20540, 'Washington', 'DC', '38.888688', '-77.006913'),
+    ('5100 Las Vegas Blvd S', 89119, 'Las Vegas', 'NV', '36.081855', '-87.623304'),
+    ('400 Broad Street', 98109, 'Seattle', 'WA', '47.6205099', '-87.623304');
 
 
 
@@ -93,7 +93,7 @@ insert into Collection (`name`, `description`)
     Though today, Hollywood would most likely to be associated with films and television, New York City has had an enormous impact on said arts, and is sometimes considered the original Hollywood. Combined with the fact that NYC is a vast cultural melting pot, 
     AND the biggest metropolitan area in the world, it makes sense that it would be a prime 
     location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.'),
-    ('Chicago: Big Attractions', 'Come tour Chicago!'),
+    ('Chicago: View the Windy City', 'Come tour Chicago!'),
     ('Washington DC: Presidential Tour', 'Washington, the nations capital is home to some of the most important buildings in the country. The home of the head of the nation, is the congregation for important decision making, marches, events, as well as discourse with nations'),
     ('Las Vegas: The City of Lights', 'Besides being associated with gambling, partying and casinos, Las Vegas is a beautiful city with a plethora of landmarks to tour'),
     ('Seattle: Tour the Pacific North West', 'Known as the gem of the pacific northwest, Seattle is an amazing city with plenty of opportunities to travel and tour');
@@ -176,7 +176,7 @@ insert into Facts (`description`, landmark_id)
     ('Fact 2: Rockefeller Center is set on the Rockefeller Plaza, which is the home to two more famous NYC landmarks, the Rockefeller Ice Skating Rink, as well as the Rockefeller Tree(Seasonal), both of which have been the background for even more films', 9),
     ('Fact 3: Originally built from 1930 - 1939, the Rockefeller Center was originally planned as a building to replace the Metropolitan Opera House', 9),
     ('Fact 4: The term Radio City Music Hall originated from John Rockefeller Jr. not wanting the name of his family to be associated with the building, though as we know now that did not go to plan entirely', 9),
-    ('Fact 1: Its the capital.', 5),
-    ('Fact 1: Its Las Vegas.', 6),
-    ('Fact 1: Its Seattle.', 7);
+    ('Fact 1: Its the capital.', 10),
+    ('Fact 1: Its Las Vegas.', 11),
+    ('Fact 1: Its Seattle.', 12);
     

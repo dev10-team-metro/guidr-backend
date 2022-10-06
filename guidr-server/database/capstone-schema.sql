@@ -78,9 +78,12 @@ insert into Address (address, zip_code, city, state, latitude, longitude)
     ('295 Lafayette Street', '10012', 'New York', 'NY', '40.724709', '-73.999847'),
     ('45 Grand Central Terminal', '10017', 'New York', 'NY', '40.752949', '-73.979026'),
     ('45 Rockefeller Plaza', '10111', 'New York', 'NY', '40.758744', '-73.980868'),
+    ('201 E Randolph St', '60602', 'Chicago', 'IL', '41.882657', '-87.623304'),
     ('101 Independence Ave SE', 20540, 'Washington', 'DC', 38.888688, -77.006913),
     ('5100 Las Vegas Blvd S', 89119, 'Las Vegas', 'NV', 36.081855, -115.175113),
     ('400 Broad Street', 98109, 'Seattle', 'WA', 47.6205099, -122.3514714);
+
+
 
 insert into Collection (`name`, `description`)
 	values
@@ -90,9 +93,11 @@ insert into Collection (`name`, `description`)
     Though today, Hollywood would most likely to be associated with films and television, New York City has had an enormous impact on said arts, and is sometimes considered the original Hollywood. Combined with the fact that NYC is a vast cultural melting pot, 
     AND the biggest metropolitan area in the world, it makes sense that it would be a prime 
     location for filming. So come along, as we venture through some of the most famous spots in cinema history, that are in the concrete jungle that is the empire state.'),
+    ('Chicago: Big Attractions', 'Come tour Chicago!'),
     ('Washington DC: Presidential Tour', 'Washington, the nations capital is home to some of the most important buildings in the country. The home of the head of the nation, is the congregation for important decision making, marches, events, as well as discourse with nations'),
     ('Las Vegas: The City of Lights', 'Besides being associated with gambling, partying and casinos, Las Vegas is a beautiful city with a plethora of landmarks to tour'),
     ('Seattle: Tour the Pacific North West', 'Known as the gem of the pacific northwest, Seattle is an amazing city with plenty of opportunities to travel and tour');
+
 
 insert into Landmarks (`name`, price, image, address_id, collection_id)
 	values
@@ -106,12 +111,12 @@ insert into Landmarks (`name`, price, image, address_id, collection_id)
     ('Puck Building', '0', 'https://i.imgur.com/fuWb1LT.jpg', 7, 2),
     ('Grand Central Terminal', '0', 'https://i.imgur.com/YjI4143.jpg', 8, 2),
     ('Rockefeller Center', '40', 'https://i.imgur.com/gHPE9Zo.jpg', 9, 2),
-    
+    ('Cloud Gate', '0', 'https://i.imgur.com/Tm7hTrK.jpg', 10, 3),
     ('Capitol', '0', 'https://i.imgur.com/YSlqoEF.jpg', 10, 4),
     ('Welcome to Las Vegas', '0', 'https://i.imgur.com/23sKcZk.jpg', 11, 5),
     ('The Space Needle', '0', 'https://i.imgur.com/acl7ghT.jpg', 12, 6);
     
-    
+   
     
 insert into `User` (username, password_hash, disabled)
 	values

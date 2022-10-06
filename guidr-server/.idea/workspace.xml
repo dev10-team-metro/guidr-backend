@@ -66,12 +66,23 @@
       <recent name="learn.guidr.data" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.learn.guidr.App">
+    <configuration default="true" type="Application" factoryName="Application">
       <envs>
         <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr" />
         <env name="DB_USER" value="root" />
         <env name="DB_PASS" value="top-secret-password" />
+      </envs>
+      <module name="guidr-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="learn.guidr.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASS" value="C0y0t3Th30ry" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="learn.guidr.App" />
       <module name="guidr-server" />
@@ -81,17 +92,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <envs>
-        <env name="DB_URL" value="jdbc:mysql://localhost:3306/guidr" />
-        <env name="DB_USER" value="root" />
-        <env name="DB_PASS" value="top-secret-password" />
-      </envs>
-      <module name="guidr-server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -193,7 +193,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.App" />
+      <item itemvalue="Application.learn.guidr.App" />
       <item itemvalue="JUnit.AddressServiceTest" />
       <item itemvalue="JUnit.CollectionJdbcTemplateRepositoryTest" />
       <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
@@ -201,10 +201,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.learn.guidr.App" />
         <item itemvalue="JUnit.AddressServiceTest" />
         <item itemvalue="JUnit.LandmarkJdbcTemplateRepositoryTest" />
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.learn.guidr.App" />
         <item itemvalue="JUnit.AddressServiceTest" />
       </list>
     </recent_temporary>
